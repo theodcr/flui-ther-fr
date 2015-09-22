@@ -1,0 +1,174 @@
+% a4paper is essential, fleqn for left-alignment of formulas, leqno for left-sided formula numbers
+\documentclass[10pt,a4paper,twocolumn,fleqn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Fonts, better looking with microtype
+% Math design for matching maths : for charter and utopia
+% fourier and kpfonts are good packages too
+\usepackage{lmodern}
+\usepackage[charter]{mathdesign}
+\usepackage{microtype}
+
+% Language
+\usepackage[french]{babel}
+
+% Geometry
+\usepackage[top=2.5cm, bottom=3cm, left=1.5cm, right=1.5cm, headheight=15pt]{geometry}
+
+% Figures and tikz
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Colors
+\definecolor{red1}{RGB}{204,0,0}
+
+% Math
+\usepackage{amsmath}
+%\usepackage{amssymb} 
+%\usepackage{mathrsfs}  % unusable with mathdesign
+\usepackage[overload]{empheq}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norme}[1]{\left\lVert#1\right\rVert}
+
+% More greek letters
+\usepackage{upgreek}
+
+% Nomenclature
+\usepackage[french]{nomencl}
+\makenomenclature
+
+% Utf8 characters in listings
+%\usepackage{listingsutf8}
+
+% Links for sections and references
+\usepackage[colorlinks,linkcolor=black,urlcolor=red1,citecolor=red1]{hyperref}
+
+% Space between paragraphs
+\addtolength{\parskip}{2pt}
+
+% Figures path
+\graphicspath{{figures/}}
+
+% Changes the look of sections, titlerule to add a line
+\usepackage{titlesec}
+\titleformat{\section}{\Large}{\thesection.}{.5em}{}[\titlerule]
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large}
+
+% Head and foot edition
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Mécanique des Fluides, Thermique et Énergétique}
+\rhead{\small Théo \bsc{Delecour}}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+\title{Mécanique des Fluides, Thermique et Énergétique}
+\author{Théo Delecour}
+\date{2015}
+
+\begin{document}
+
+% keeps title, author and date attributes
+\makeatletter
+
+% ================================================================
+\begin{center}
+ \LARGE \@title
+ 
+ \Large \@author
+ 
+ \large \href{mailto:theo.delecour@ecl13.ec-lyon.net}{theo.delecour@ecl13.ec-lyon.fr}
+\end{center}
+
+\makeatother
+
+Ce document résume des éléments utiles pour l'étude de la mécanique des fluides, depuis les principes généraux qui entrent en jeu jusqu'aux applications concrètes des équations. Ce document se veut général et non spécialisé.
+
+% ----------------------------------------------------------------
+\input{./nomenclature.tex}
+
+% ----------------------------------------------------------------
+\section*{Convention de notation}
+Pour améliorer la visibilité des équations et la compréhension des problèmes, on utilisera l'opérateur $\vec{\nabla}$, pour rappel :
+%
+\begin{equation*}
+\begin{aligned}
+div (\vec{U}) &= \vec{\nabla} \cdot \vec{U} \\
+\vec{grad} (\phi) &= \vec{\nabla} \phi \\
+\Delta (\phi) &= \nabla^2 \phi
+\end{aligned}
+\end{equation*}
+
+
+
+% ================================================================
+\section{Éléments de cinématique}
+\input{./files/cinematique.tex}
+
+% ================================================================
+\section{Statique de fluides}\label{sec:statique} %OK, une figure peut etre
+\input{./files/statique.tex}
+
+% ================================================================
+\section{Thermodynamique}
+\input{./files/thermo.tex}
+
+% ================================================================
+\section{Viscosité et rhéologie}\label{sec:rheo}
+\input{./files/rheologie.tex}
+
+% ================================================================
+\section{Lois de conservation}
+\input{./files/lois_conservation.tex}
+
+% ================================================================
+\section{Fluide newtownien}
+\input{./files/newtonien.tex}
+
+% ================================================================
+\section{Nombre de Reynolds} %OK
+\input{./files/reynolds.tex}
+
+% ================================================================
+\section{Friction et perte de charge} %OK
+\input{./files/friction.tex}
+
+% ================================================================
+\section{La turbulence}
+Vorticité $\vec{\omega}=\vec{rot}(\vec{U})$
+
+Irrotationnalité : $\vec{\omega}=\vec{0}$
+
+
+% ================================================================
+\section{Écoulements compressibles}
+
+Validité du modèle fluide incompressible : $Ma \ll 1$ 
+avec $Ma=\frac{U}{c}$ et $c=\sqrt{\gamma r T}$
+
+
+% ================================================================
+\section{Transfert de chaleur}
+\input{./files/thermique.tex}
+
+% ================================================================
+\section{Mélanges fluides} %OK
+\input{./files/melanges.tex}
+
+% ================================================================
+\section{Bonus vu en TD}
+$Re$ grand $\Rightarrow$ variations de pression de l'ordre de $\rho U^2$, propriété 
+tirée du Théorème de Bernouilli
+
+
+% ================================================================
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{biblio.bib}
+
+\end{document}

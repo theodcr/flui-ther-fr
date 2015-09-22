@@ -1,0 +1,48 @@
+
+Le fluide est ici au repos, on s'intéresse alors particulièrement à sa pression $p$.
+
+%-------------------------------------------------------
+\subsection{Équation d'état}
+\paragraph{Gaz parfait :}relation très célèbre, bien vérifiée à faible pression (p>1 atm) et température supérieures à 273K
+%
+\begin{equation}
+pV = nRT \text{ avec } R = k_B~\mathcal{N}_A = 8.314 \text{ J/K/mol}
+\end{equation}
+%
+Avec $k_B$ la constante de Boltzmann et $\mathcal{N}_A$ la constante d'Avogadro. On définit souvent $r = R/M$ avec $M$ la masse molaire du gaz étudié (en kg/mol), on a ainsi \textbf{pour l'air} :
+%
+\begin{equation}
+p = \rho~r~T \quad\text{avec } r = 287 \text{ J/K/kg}
+\end{equation}
+
+\paragraph{Gaz de Van der Waals :}meilleure approximation que l'équation des gaz parfait pour des hautes pressions et des faibles températures. Ce modèle prend en compte le volume propre des molécules et les forces d'interactions de Van der Waals ($a$ et $b$ sont des constantes propres au gaz étudié) :
+%
+\begin{equation}
+\left( p + a\rho^2 \right) \left( \frac{1}{\rho} - b \right) = rT
+\end{equation}
+
+
+%-------------------------------------------------------
+\subsection{Hydrostatique}
+On démontre la relation de l'hydrostatique (ou Principe Fondamental de la Statique) :
+%
+\begin{equation}
+\vec{\nabla} p = \rho \vec{g}
+\label{eq:PFS}
+\end{equation}
+
+L'application de cette relation à une atmosphère uniquement composée d'un gaz parfait isotherme nous donne la variation de la pression avec l'altitude :
+%
+\begin{equation}
+p = p_0~e^{-\frac{g}{rT}z}
+\end{equation}
+
+On peut aussi démontrer des relations similaires pour un fluide en connaissant à son coefficient de compressibilité isotherme $\upchi_T$ ou un gaz polytropique.
+
+\subsection{Loi de Jurin}
+Un fluide est placé dans un tube au repos, il présente une surface de contact avec l'air. La loi de Jurin permet de lier l'angle que forme le ménisque du liquide à la différence de pression entre le liquide et l'air. On peut également calculer la hauteur de monter du liquide dans un capillaire. Les phénomènes de mouillabilité du contact fluide-solide (le solide étant le tube ici) entrent en jeu.
+
+\subsection{Principe d'Archimède}
+\paragraph{Enoncé :}Dans une situation d'équilibre, tout corps partiellement immergé entre deux fluides au repos subit une poussée verticale ascendante qui est égale aux poids des volumes des deux fluides déplacés\cite{amiroudine2014meéccanique}.
+
+Cette poussée est appliquée au centre de masse du volume de fluide déplacé et non au centre de masse du solide (point où s'applique la gravité). Apparaît ainsi la problématique d'équilibre du solide en fonction du placement relatif de ces points.

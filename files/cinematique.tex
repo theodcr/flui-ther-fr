@@ -1,0 +1,39 @@
+
+En mécanique des fluides, on s'intéresse au comportement de \textbf{particules fluide} de petite taille (relativement aux dimensions caractéristiques de l'écoulement). Chacune est associée à un point matériel, et les grandeurs descriptives du fluide (vitesse $\vec{U}$, densité $\rho$...) ne varient pas au sein d'une même particule. Ces particules forment ensemble le fluide en mouvement, qui est alors considéré comme un \textbf{milieu continu}.
+
+\paragraph{Lignes de courant :}ce sont des courbes qui décrivent un fluide en mouvement pour un temps $t$ fixé. En un point $M$ donné, la tangente à une ligne de courant donne la direction du vecteur vitesse de ce point (ou plutôt de la particule fluide associée au point).
+%
+\begin{equation}
+\vec{U}\wedge d\vec{x}=0
+\end{equation}
+
+\paragraph{Trajectoire :}la trajectoire d'une particule fluide dépend de tout l'historique de l'écoulement :
+%
+\begin{equation}
+\frac{d\vec{x}}{dt} = \vec{U}(\vec{x},t)
+\end{equation}
+
+Un écoulement \textbf{stationnaire} est un écoulement dont les propriétés ne dépendent pas du temps (on pourrait le qualifier de stable par exemple). Il ne faut cependant pas le confondre avec un écoulement statique où rien ne bouge (la statique des fluides est détaillée en section \ref{sec:statique}). Dans un écoulement stationnaire, les particules se déplacent le long des lignes de courant, on a alors coïncidence des lignes de courant et des trajectoires.
+
+\paragraph{Dérivée matérielle :}elle représente la dérivée d'une grandeur $\phi(\vec{x},t)$ par rapport au temps en prenant en compte le mouvement du fluide avec le temps :
+%
+\begin{equation}
+\frac{D\phi}{Dt} = \frac{\partial{\phi}}{\partial{t}} + \left( \vec{U} \cdot \vec{\nabla} \right) \phi
+\end{equation}
+%
+Le terme $\left( \vec{U} \cdot \vec{\nabla} \right) \phi$ est le terme advectif, lié au mouvement du fluide, on appelle même couramment $\left( \vec{U} \cdot \vec{\nabla} \right)$ opérateur advection (voir sur \href{https://fr.wikipedia.org/wiki/Advection}{Wikipédia}).
+
+\paragraph{Théorème de la divergence :}c'est un théorème basique et important, il décrit la correspondance entre le flux d'une quantité entrant dans un volume par sa frontière (sa surface) et la divergence de cette quantité dans le volume :
+%
+\begin{equation}
+\int_{S} {\vec{U}.\vec{n}~dS} = \int_{V} { \vec{\nabla} \cdot \vec{U} dV }
+\end{equation}
+
+\paragraph{Théorème de Reynolds :}ou théorème de transport, il exprime le dérivée temporelle d'une quantité $\Phi$ qui possède un pendant volumique $\phi$ (par exemple une masse $m$ et une masse volumique $\rho$) :
+%
+\begin{equation}
+\frac{d\Phi}{dt}
+ = \frac{d}{dt} \int_{V(t)} \phi~dV
+ = \int_{V(t)} \frac{\partial \phi}{\partial t} dV
+ + \int_{S(t)} \phi \vec{U}.\vec{n} dS
+\end{equation}

@@ -1,0 +1,13 @@
+Le caractère visqueux d'un fluide permet d'assurer la continuité de son profil de vitesse, en particulier à proximité des parois. En quelque sorte, c'est grâce à sa viscosité qu'un fluide peut avoir une vitesse nulle à une paroi immobile mais garder une vitesse moyenne élevée.
+
+La rhéologie d'un fluide décrit son comportement visqueux. Un modèle rhéologique donne la relation liant la contrainte de cisaillement $\tau$ (en $Pa$) d'un fluide à son taux de cisaillement $\dot{\gamma}$ (en $s^{-1}$), il en existe plusieurs couramment utilisés.
+
+Le modèle Newtonien est le plus simple, l'eau vérifie ce modèle avec fidélité. Il respecte la loi de viscosité de Newton qui fait apparaître la viscosité dynamique $\mu$ du fluide :
+%
+\begin{equation}
+\tau = \mu \dot{\gamma} = \mu \left( \frac{\partial U}{\partial x} \right)
+\end{equation}
+
+La viscosité $\mu$ d'un fluide dépend fortement de sa température ; en général la viscosité d'un liquide diminue avec $T$ tandis que celle d'un gaz augmente.
+
+A retenir : un fluide à viscosité extrêmement élevée a un comportement proche de celui d'un solide, on pourrait même considérer les solides comme des fluides à viscosité quasi-infinie.

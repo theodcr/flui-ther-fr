@@ -1,0 +1,179 @@
+
+Équations du mouvement en compressible :
+\[
+\left\{
+\begin{array}{r c l}
+\frac{D\rho}{Dt}+\rho\,div(\vec{U}) &=& 0 \\
+\rho\frac{D\vec{U}}{Dt} &=& -\vec{grad}(p)+div(\vec{\vec{\tau}})+\rho\vec{f} \\
+\rho\frac{De}{Dt} &=& \vec{\vec{\tau}}:\vec{\vec{D}}-p.div(\vec{U})-div(\vec{q})+\rho\,q_*
+\end{array}
+\right.
+\]
+avec $q_*$ l'apport volumique de chaleur et $\vec{q}$ la densité de flux de chaleur
+
+
+\paragraph{Conductivité thermique :}on la note $k$ ou $\lambda$ et elle s'exprime en W/K/m. Elle caractérise la capacité d'un matériau à diffuser la chaleur (plus elle est élevée, plus le matériau diffuse rapidement). Elle est assez liée à la conductivité électrique $\sigma$ du matériau (un matériau bon conducteur de chaleur est souvent également bon conducteur d'électricité), pour un \textbf{métal} la loi de Wiedmann-Franz\cite{battaglia2010introduction} affirme que :
+%
+\begin{equation}
+\frac{k}{\sigma~T} = L_0 = 2.44~10^{-8} W\Omega K^{-2}
+\end{equation}
+
+
+\paragraph{Loi de Fourier :}c'est la loi essentielle dans tout problème de diffusion (de la chaleur ou de la matière par exemple). Elle s'applique à tout matériau isotrope (une formulation plus complexe reste possible pour un matériau non isotrope). En thermique, elle représente la relation entre la densité de flux de chaleur $\vec{\phi}$ traversant un volume et le gradient de température au sein de ce volume :
+%
+\begin{equation}
+\vec{\phi} = - k \vec{\nabla}(T)
+\end{equation}
+%
+La présence du signe négatif est physiquement logique : le flux va du chaud vers le froid alors que le gradient de température suit le sens inverse (il va des températures faibles aux températures élevées).
+%
+\begin{center}
+  \begin{tikzpicture}[scale=0.7]
+  \filldraw[fill=red!20,draw=red] (0,0) circle(1);
+  \filldraw[fill=blue!20,draw=blue] (5,0) circle(1);
+  \draw [red] (0,1) node[above] {chaud};
+  \draw [blue] (5,1) node[above] {froid};
+  % arrows
+  \draw [magenta,->,very thick] (1.5,0.5) -- (3.5,0.5);
+  \draw [->,very thick] (3.5,-0.5) -- (1.5,-0.5);
+  % text
+  \draw [magenta] (2.5,0.5) node[above] {$\vec{\phi}$};
+  \draw (2.5,-0.5) node[below] {$T\nearrow$};
+  \end{tikzpicture}
+\end{center}
+
+
+\paragraph{Diffusivité thermique :}c'est un rapport qu'on rencontre régulièrement en thermique, il caractérise également la capacité d'un matériau à diffuser la chaleur (présence importante de la conductivité) :
+%
+\begin{equation}
+\alpha = \frac{k}{\rho c_p}
+\end{equation}
+
+
+\paragraph{Équation de la température :}
+%
+\begin{equation}
+\rho~c_p \frac{DT}{Dt}
+= - k \vec{\nabla} T
++ \rho~q_*
++ \tau:D
++ \beta T\frac{Dp}{Dt}
+\end{equation}
+
+La géométrie du problème et les hypothèses physiques nous mènent souvent à adopter une forme simplifiée de cette équation. Dans un cas sans mouvement de fluide (conduction pure) et sans apport de chaleur, on a :
+%
+\begin{equation}
+\frac{\partial T}{\partial t}
+= \alpha \nabla^2 T
+\end{equation}
+
+Un élément utile à retenir : la diffusion de chaleur tend à lisser le champ de température, à diminuer les écarts de température. Les pics de chaleur initiaux sont étalés en distance avec le temps, et cette distance à l'instant $t$ est de l'ordre de $\sqrt{\alpha~t}$ (en m).
+
+
+\paragraph{Nombre de Péclet :}il représente le rapport entre effets d'inertie et effets thermiques, c'est le pendant du nombre de Reynolds dans le domaine de la thermique
+%
+\begin{equation}
+Pe=\frac{Ul}{\alpha}
+\end{equation}
+%
+On observe aussi l'existence de couches et sillages thermiques autour des obstacles à $Pe$ élevé (attention ces couches sont à distinguer des couches limites visqueuses).
+
+\paragraph{Nombre de Prandt :}il est définit comme le rapport des diffusivités visqueuse et thermique, il représente ainsi l'importance relative entre effets visqueux et thermiques.
+%
+\begin{equation}
+Pr = \frac{\nu}{\alpha} = \frac{\mu~c_p}{k} = \frac{Pe}{Re}
+\end{equation}
+%
+Il est très élevé ($10^3$) dans le cas d'une huile (grande viscosité) et très faible ($10^{-2}$) pour un métal liquide (excellents conducteurs thermiques et peu visqueux). Pour un gaz, il est d'environ $0.7$, et pour l'eau il est compris entre $1$ et $10$.
+
+%\begin{center}
+%  \begin{tikzpicture}
+%  \fill[fill=gray!20] (-4,2) -- (0,2) -- (0,-1) -- (-4,-1);
+%  \fill[fill=gray!40] (0,2) -- (4,2) -- (4,-1) -- (0,-1);
+%  \draw [very thick,->] (-4,0) -- (4,0);
+%  \draw (0,-1) -- (0,2);
+%  \draw (0.5,0) node[below] {$x=0$};
+%  \draw (-2,1) node[above] {$T_A(x)$};
+%  \draw (2,1) node[above] {$T_B(x)$};
+%  \end{tikzpicture}
+%\end{center}
+
+
+\subsection{Flux de conduction et convection}
+La convection est le second grand phénomène de la thermique, après la conduction. Elle se définit comme un transfert d'énergie directement lié à un transport de masse. Ainsi, dès qu'il y a mouvement, il y a convection, le cas le plus courant est celui d'un fluide en mouvement par rapport à un solide (on sera dans ce cadre ici). On distingue 2 types de convection : la forcée et la libre (ou naturelle), décrites ci-dessous. Le coefficient de convection $h$ est dans tous les cas un nombre important dans la prédiction des comportements convectifs.
+
+Ce nombre intervient dans l'écriture des flux de chaleur aux parois. Ces flux aux parois peuvent définir les conditions limites des problèmes thermiques. Pour une paroi plane située à l'abscisse $x_0$ et séparant les milieux 1 et 2, les densité de flux s'écrivent ainsi :
+%
+\begin{align}[left=\empheqlbrace]
+ &\phi_{\text{conduction}}
+ = - k_1 \left. \frac{\partial{T_1}}{\partial{x}} \right|_{x=x_0}
+ = - k_2 \left. \frac{\partial{T_2}}{\partial{x}} \right|_{x=x_0} \\
+ &\phi_{\text{convection}}
+ = h_{12} \left( T_2 - T_1 \right)_{x=x_0}
+ \label{eq:fluxth}
+\end{align}
+
+
+\subsection{Convection forcée :}
+Le phénomène de convection forcée apparaît lorsque le fluide est mis en mouvement par 
+l'écoulement du fluide est , par une pompe par exemple. Ce mouvement forcé du fluide et à l'origine d'échange convectifs avec le solide en contact. Cependant, au sein même du fluide, son mouvement fait déjà apparaître un terme advectif dans son équation de la chaleur. Ce terme est dû à la dépendance de $T$ en temps, et témoigne du transport de la chaleur avec l'écoulement à la vitesse $U$ :
+%
+\begin{equation}
+\rho~c_{p} \left( \frac{\partial T}{\partial t}
++ \vec{U} \cdot \vec{\nabla} T \right)
+= - \nabla(\vec{\phi})
+\end{equation}
+
+\paragraph{Nombre de Nusselt :}il est défini comme le rapport entre le gradient de température à la paroi et le gradient de température "élargi". Il permet de calculer le coefficient de convection $h$.
+%
+\begin{equation}
+Nu = \frac{h~l}{k_f}
+= \frac{\left. \frac{\partial{T}}{\partial{x}} \right|_{x=x_0}}
+{ \left( T_f - T_s \right)/l}
+\end{equation}
+%
+avec $k_f$ le coefficient de conduction thermique du fluide en mouvement. Une analyse dimensionnelle (détaillée en \cite{battaglia2010introduction}) affirme que ce nombre peut être écrit en fonction des nombres de Reynolds $Re$ et Prandt $Pr$ (ou indifféremment Péclet $Pe$).
+
+On retrouve l'écriture de $\phi_{\text{convection}}$ \eqref{eq:fluxth} ainsi :
+%
+\begin{equation}
+\phi = - k_f \left. \frac{\partial{T}}{\partial{x}} \right|_{x=x_0}
+     = k_f \frac{Nu}{l} \left( T_s - T_f \right)
+     = ...
+\end{equation}
+
+En conclusion, pour un fluide en mouvement et en contact avec un solide, l'équation de la chaleur a la forme suivante :
+%
+\begin{equation}
+\rho~c_{p} \left( \frac{\partial T}{\partial t}
++ \vec{U} \cdot \vec{\nabla} T \right)
+= h pasbon \left( T_s - T \right)
+\end{equation}
+
+
+
+\subsection{Convection libre :}
+Ici le fluide est initialement au repos, et c'est le transfert de chaleur qui le met en mouvement. Un gradient de température apparaît au sein du fluide, et la dépendance de sa densité volumique $\rho$ avec la température est à l'origine d'un mouvement du fluide, par poussée d'Archimède (le fluide plus léger monte etc).
+
+On peut également définir un nombre de Nusselt $Nu$, mais il ne sera plus exprimé en fonction de $Re$, car la vitesse $U$ n'a pas de sens en convection libre. Le nouveau coefficient important en convection libre est le coefficient de dilatation thermique $\beta$ du fluide (en K\up{-1}) :
+%
+\begin{equation}
+\beta = \frac{1}{V} \left( \frac{\partial V}{\partial T} \right)_p
+      = - \frac{1}{\rho} \left( \frac{\partial \rho}{\partial T} \right)_p
+\end{equation}
+%
+Ce coefficient vaut $1/T$ pour un gaz parfait.
+
+\paragraph{Nombre de Grashof :}il compare les forces visqueuses aux forces de gravité
+%
+\begin{equation}
+Gr = \frac{1}{\nu^2}\beta g l^3 \Delta T
+\end{equation}
+%
+On peut exprimer $Nu$ en fonction de $Gr$ et $Pr$, ces relations sont déterminées expérimentalement et sont différentes selon la géométrie du problème.
+
+\paragraph{Nombre de Rayleigh :}il est très lié à $Gr$ et permet de déterminer le régime d'écoulement en convection libre, on peut aussi déterminer $Nu = f(Pr,Ra)$
+%
+\begin{equation}
+Ra = Pr~Gr = \frac{1}{\nu\alpha}\beta g l^3 \Delta T
+\end{equation}
