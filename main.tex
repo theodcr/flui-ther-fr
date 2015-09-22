@@ -26,7 +26,7 @@
 
 % Math
 \usepackage{amsmath}
-%\usepackage{amssymb} 
+%\usepackage{amssymb}
 %\usepackage{mathrsfs}  % unusable with mathdesign
 \usepackage[overload]{empheq}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
@@ -67,6 +67,9 @@
 \renewcommand{\headrulewidth}{0.2pt}
 \renewcommand{\footrulewidth}{0.0pt}
 
+% Redefines the label item (changed by the french babel package)
+\AtBeginDocument{\def\labelitemi{$\bullet$}}
+
 \title{Mécanique des Fluides, Thermique et Énergétique}
 \author{Théo Delecour}
 \date{2015}
@@ -79,10 +82,8 @@
 % ================================================================
 \begin{center}
  \LARGE \@title
- 
+
  \Large \@author
- 
- \large \href{mailto:theo.delecour@ecl13.ec-lyon.net}{theo.delecour@ecl13.ec-lyon.fr}
 \end{center}
 
 \makeatother
@@ -111,7 +112,7 @@ div (\vec{U}) &= \vec{\nabla} \cdot \vec{U} \\
 \input{./files/cinematique.tex}
 
 % ================================================================
-\section{Statique de fluides}\label{sec:statique} %OK, une figure peut etre
+\section{Statique de fluides}\label{sec:statique} %done, une figure peut etre
 \input{./files/statique.tex}
 
 % ================================================================
@@ -131,24 +132,21 @@ div (\vec{U}) &= \vec{\nabla} \cdot \vec{U} \\
 \input{./files/newtonien.tex}
 
 % ================================================================
-\section{Nombre de Reynolds} %OK
+\section{Nombre de Reynolds} %done
 \input{./files/reynolds.tex}
 
 % ================================================================
-\section{Friction et perte de charge} %OK
+\section{Friction et perte de charge} %done
 \input{./files/friction.tex}
 
 % ================================================================
-\section{La turbulence}
-Vorticité $\vec{\omega}=\vec{rot}(\vec{U})$
-
-Irrotationnalité : $\vec{\omega}=\vec{0}$
-
+\section{Modélisation de la turbulence}
+\input{./files/turbulence.tex}
 
 % ================================================================
 \section{Écoulements compressibles}
 
-Validité du modèle fluide incompressible : $Ma \ll 1$ 
+Validité du modèle fluide incompressible : $Ma \ll 1$
 avec $Ma=\frac{U}{c}$ et $c=\sqrt{\gamma r T}$
 
 
@@ -157,14 +155,12 @@ avec $Ma=\frac{U}{c}$ et $c=\sqrt{\gamma r T}$
 \input{./files/thermique.tex}
 
 % ================================================================
-\section{Mélanges fluides} %OK
+\section{Mélanges fluides} %done
 \input{./files/melanges.tex}
 
 % ================================================================
 \section{Bonus vu en TD}
-$Re$ grand $\Rightarrow$ variations de pression de l'ordre de $\rho U^2$, propriété 
-tirée du Théorème de Bernouilli
-
+$Re$ grand $\Rightarrow$ variations de pression de l'ordre de $\rho U^2$
 
 % ================================================================
 \nocite{*}

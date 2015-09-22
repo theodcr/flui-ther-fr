@@ -11,7 +11,7 @@ avec $l$ longueur caractéristique de l'écoulement (voir partie \ref{sec:Re_det
 
 Le nombre de Reynolds (1883) permet de définir le \textbf{régime} d'un écoulement. On distingue 2 grands régimes :
 %
-\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
 \item le régime \textbf{laminaire} à $Re<10^3$ environ. Les forces visqueuses sont importantes, l'écoulement est régulier et ordonné, les lignes de courant sont bien définies. C'est le cas d'un écoulement lent d'un fluide très visqueux (de l'huile ou du miel par exemple)
 
 \item le régime \textbf{turbulent} à $Re>10^5$ environ. L'écoulement devient chaotique, ses caractéristiques (la vitesse par exemple) prennent des valeurs aléatoires dans des directions aléatoires, mais centrées autour d'un champ moyen. C'est le cas d'un écoulement rapide d'un fluide peu visqueux (de l'eau ou de l'air)
@@ -55,21 +55,21 @@ Même pression dans la couche limite et dans le reste de l'écoulement.
 La définition de la longueur caractéristique d'un écoulement peut sembler vague, mais à nouveau on raisonne surtout en ordre de grandeur pour le calcul de $Re$. Pour un écoulement autour d'un objet, on prendra la taille de cet objet dans la direction de l'écoulement (par exemple la longueur d'une voiture sur l'autoroute ou la longueur d'un profil d'aile) :
 %
 \begin{center}
-\begin{tikzpicture}[scale=0.6]
-  \draw (0,0) circle(1);
-  \draw [<->] (-1,1.2) -- (1,1.2);
-  \draw (0,1.2) node[above] {$l$};
-  \draw (4,0) ..controls +(0,0.5) and +(-1,0).. (7,0);
-  \draw (4,0) ..controls +(0,-0.5) and +(-1,0).. (7,0);
-  \draw [<->] (4,0.5) -- (7,0.5);
-  \draw (5.5,0.5) node[above] {$l$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.6]
+        \draw (0,0) circle(1);
+        \draw [<->] (-1,1.2) -- (1,1.2);
+        \draw (0,1.2) node[above] {$l$};
+        \draw (4,0) ..controls +(0,0.5) and +(-1,0).. (7,0);
+        \draw (4,0) ..controls +(0,-0.5) and +(-1,0).. (7,0);
+        \draw [<->] (4,0.5) -- (7,0.5);
+        \draw (5.5,0.5) node[above] {$l$};
+    \end{tikzpicture}
 \end{center}
 %
 Pour un écoulement dans un tuyau, on choisira le diamètre du tuyau. Et pour un écoulement dans une conduite en anneau, on considérera ce qu'on appelle le \textit{diamètre hydraulique}, souvent défini comme la différence des diamètres extérieur et intérieur de l'anneau (d'autres définitions existent).
 %
 Pour un écoulement dans une conduite circulaire, les nombres de Reynolds limites ont été précisément identifiés par expérience :
-\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
-\item régime laminaire : $Re<2100$
-\item régime turbulent : $Re>4000$
+\begin{itemize}
+    \item régime laminaire : $Re<2100$
+    \item régime turbulent : $Re>4000$
 \end{itemize}

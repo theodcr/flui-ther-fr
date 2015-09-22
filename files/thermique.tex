@@ -28,17 +28,17 @@ avec $q_*$ l'apport volumique de chaleur et $\vec{q}$ la densité de flux de cha
 La présence du signe négatif est physiquement logique : le flux va du chaud vers le froid alors que le gradient de température suit le sens inverse (il va des températures faibles aux températures élevées).
 %
 \begin{center}
-  \begin{tikzpicture}[scale=0.7]
-  \filldraw[fill=red!20,draw=red] (0,0) circle(1);
-  \filldraw[fill=blue!20,draw=blue] (5,0) circle(1);
-  \draw [red] (0,1) node[above] {chaud};
-  \draw [blue] (5,1) node[above] {froid};
-  % arrows
-  \draw [magenta,->,very thick] (1.5,0.5) -- (3.5,0.5);
-  \draw [->,very thick] (3.5,-0.5) -- (1.5,-0.5);
-  % text
-  \draw [magenta] (2.5,0.5) node[above] {$\vec{\phi}$};
-  \draw (2.5,-0.5) node[below] {$T\nearrow$};
+    \begin{tikzpicture}[scale=0.7]
+    \filldraw[fill=red!20,draw=red] (0,0) circle(1);
+    \filldraw[fill=blue!20,draw=blue] (5,0) circle(1);
+    \draw [red] (0,1) node[above] {chaud};
+    \draw [blue] (5,1) node[above] {froid};
+    % arrows
+    \draw [magenta,->,very thick] (1.5,0.5) -- (3.5,0.5);
+    \draw [->,very thick] (3.5,-0.5) -- (1.5,-0.5);
+    % text
+    \draw [magenta] (2.5,0.5) node[above] {$\vec{\phi}$};
+    \draw (2.5,-0.5) node[below] {$T\nearrow$};
   \end{tikzpicture}
 \end{center}
 
@@ -73,7 +73,7 @@ Un élément utile à retenir : la diffusion de chaleur tend à lisser le champ 
 \paragraph{Nombre de Péclet :}il représente le rapport entre effets d'inertie et effets thermiques, c'est le pendant du nombre de Reynolds dans le domaine de la thermique
 %
 \begin{equation}
-Pe=\frac{Ul}{\alpha}
+Pe = \frac{Ul}{\alpha}
 \end{equation}
 %
 On observe aussi l'existence de couches et sillages thermiques autour des obstacles à $Pe$ élevé (attention ces couches sont à distinguer des couches limites visqueuses).
@@ -115,7 +115,7 @@ Ce nombre intervient dans l'écriture des flux de chaleur aux parois. Ces flux a
 
 
 \subsection{Convection forcée :}
-Le phénomène de convection forcée apparaît lorsque le fluide est mis en mouvement par 
+Le phénomène de convection forcée apparaît lorsque le fluide est mis en mouvement par
 l'écoulement du fluide est , par une pompe par exemple. Ce mouvement forcé du fluide et à l'origine d'échange convectifs avec le solide en contact. Cependant, au sein même du fluide, son mouvement fait déjà apparaître un terme advectif dans son équation de la chaleur. Ce terme est dû à la dépendance de $T$ en temps, et témoigne du transport de la chaleur avec l'écoulement à la vitesse $U$ :
 %
 \begin{equation}

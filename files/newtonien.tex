@@ -42,13 +42,14 @@ La viscosité cinématique d'un fluide newtonien s'exprime en m/s\up{2} et est d
 \begin{align}[left=\empheqlbrace]
  & \frac{D\vec{U}}{Dt} = - \frac{1}{\rho} \vec{\nabla} p + \nu  \nabla^2 \vec{U} + \vec{f} \\
  \notag & \vec{\nabla} \cdot \vec{U} = 0
+\label{eq:navierstokes}
 \end{align}
 
 
 %-------------------------------------------------------
 \paragraph{Théorème de Bernouilli :}ses conditions d'application sont les suivantes :
 
-\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
+\begin{itemize}
     \item fluide non visqueux
     $\Leftrightarrow \vec{\vec{\sigma}}=-p\vec{\vec{I}}$
     \item écoulement stationnaire
@@ -63,23 +64,24 @@ Alors la quantité suivante est constante le long d'une ligne de courant :
 %
 \begin{equation}
 K = p + \frac{1}{2}\rho U^2 + \rho\psi
+\label{eq:bernouilli}
 \end{equation}
 
 \paragraph{Équations d'Euler :}elles correspondent au théorème de Navier Stokes dans le cas d'un fluide non visqueux ($\nu=0$)
 
 \textbf{Conditions d'adhérence aux limites :}
-\begin{itemize}\renewcommand{\labelitemi}{$\bullet$}
- \item paroi solide : $\vec{U}_{paroi}=$vitesse de la paroi
- \item interface fluides : $\vec{U}_A=\vec{U}_B$
+\begin{itemize}
+    \item paroi solide : $\vec{U}_{paroi}=$vitesse de la paroi
+    \item interface fluides : $\vec{U}_A=\vec{U}_B$
 \end{itemize}
 
 \begin{center}
-  \begin{tikzpicture}
-  \fill[color=gray!20] (0,0) -- (0,2) ..controls +(2,0) and +(-2,0).. (5,0) -- (0,0);
-  \draw (0,2) ..controls +(2,0) and +(-2,0).. (5,0);
-  \draw (0.8,0.5) node[above] {$B$};
-  \draw (4.7,2) node[below] {$A$};
-  \draw [->,red,very thick] (2.5,1) -- +(1.4,0);
-  \draw [red] (3.2,1) node[above] {$\vec{U}_A = \vec{U}_B$};
-  \end{tikzpicture}
+    \begin{tikzpicture}
+        \fill[color=gray!20] (0,0) -- (0,2) ..controls +(2,0) and +(-2,0).. (5,0) -- (0,0);
+        \draw (0,2) ..controls +(2,0) and +(-2,0).. (5,0);
+        \draw (0.8,0.5) node[above] {$B$};
+        \draw (4.7,2) node[below] {$A$};
+        \draw [->,red,very thick] (2.5,1) -- +(1.4,0);
+        \draw [red] (3.2,1) node[above] {$\vec{U}_A = \vec{U}_B$};
+    \end{tikzpicture}
 \end{center}

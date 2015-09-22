@@ -1,0 +1,29 @@
+En régime turbulent, les champs (de vitesse, de pression...) prennent des valeurs aléatoires, mais centrées autour d'un écoulement moyen. On peut employer la décomposition de Reynolds, par exemple pour la vitesse :
+%
+\begin{equation}
+\vec{U} = \overline{\vec{U}} + \vec{u}
+\end{equation}
+%
+Le premier terme est celui du champ moyen, le second représente les fluctuations aléatoires caractéristiques de la turbulence.
+
+On peut alors adopter une description statistique de l'écoulement, la méthode couramment utilisée est celle dite de \textbf{RANS} (Reynolds-averaged Navier–Stokes equations). Elle introduit 2 nouvelles quantités : $k$ et $\epsilon$.
+%
+\begin{align}
+ & k = \frac{1}{2} \overline{\vec{u}.\vec{u}} \\
+ & \epsilon = \frac{1}{2} \nu \sum\limits_{i,j=i}^3 \overline{\left(
+ \frac{ \partial u_i }{ \partial x_j }
+ + \frac{ \partial u_j }{ \partial x_i } \right)^2}
+\end{align}
+%
+$k$ est l'énergie cinétique turbulente moyenne, elle est liée aux grandes échelles de la turbulence (l'instabilité de l'écoulement moyen). $\epsilon$ est la dissipation turbulente moyenne, liée aux petites échelles de la turbulence (les petits tourbillons qui se dissipent avec la viscosité du fluide)
+
+Autres modèles de turbulence utilisés en simulation numérique (CFD) :
+%
+\begin{itemize}
+    \item \textbf{LES} (Large Eddy Simulation ou simulation à grands tourbillons), plus lourd que le RANS. Il filtre les plus petites échelles de turbulence, il fait comme une moyenne en temps et en espace, mais il résoud ensuite les équations de Navier-Stokes sans modèle type $k-\epsilon$. Il est intéressant de l'employer en acoustique, où le RANS n'est pas assez précis.
+    \item \textbf{DNS} (Direct Numerical Simulation), il résoud directement les équations de Navier-Stokes sans aucun modèle ou filtre. Il est donc très précis mais surtout extrêmement lourd en calculs. Seul de sombres chercheurs fous l'utilisent.
+\end{itemize}
+
+Vorticité $\vec{\omega}=\vec{rot}(\vec{U})$
+
+Irrotationnalité : $\vec{\omega}=\vec{0}$
