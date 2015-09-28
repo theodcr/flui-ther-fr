@@ -1,5 +1,5 @@
 
-Le tenseur des contraintes $\vec{\vec{\sigma}}$ s'exprime ainsi :
+De manière générale, pour tout fluide, le tenseur des contraintes $\vec{\vec{\sigma}}$ s'exprime ainsi :
 %
 \begin{equation}
 \vec{\vec{\sigma}} = - p \vec{\vec{I}} + \vec{\vec{\tau}}
@@ -37,17 +37,17 @@ La viscosité cinématique d'un fluide newtonien s'exprime en m/s\up{2} et est d
 \end{equation}
 
 %-------------------------------------------------------
-\paragraph{Théorème de Navier Stokes :}il est simplement composé des équations de conservation de la masse \eqref{eq:masse} et de la QDM \eqref{eq:QDM} dans le cas d'un fluide newtonien, incompressible et homogène. On note qu'on a alors $\vec{\nabla} \cdot \vec{\vec{\tau}} = 2 \mu \vec{\nabla} \cdot \vec{\vec{D}} = \mu \nabla^2 \vec{U}$.
+\paragraph{Théorème de Navier Stokes :}il est simplement composé des équations de conservation de la masse \eqref{eq:masse} et de la QDM \eqref{eq:QDM} dans le cas d'un fluide newtonien, incompressible et homogène. On note qu'on a alors $\vec{\nabla} \cdot \vec{\vec{\tau}} = 2 \mu \vec{\nabla} \cdot \vec{\vec{D}} = \mu \nabla^2 \vec{U}$, ce qui nous donne :
 %
 \begin{align}[left=\empheqlbrace]
+ \label{eq:navierstokes}  % must put it before the first align equation
  & \frac{D\vec{U}}{Dt} = - \frac{1}{\rho} \vec{\nabla} p + \nu  \nabla^2 \vec{U} + \vec{f} \\
  \notag & \vec{\nabla} \cdot \vec{U} = 0
-\label{eq:navierstokes}
 \end{align}
 
 
 %-------------------------------------------------------
-\paragraph{Théorème de Bernouilli :}ses conditions d'application sont les suivantes :
+\paragraph{Théorème de Bernouilli :}il est très utile pour des calculs rapides, il faut bien retenir ses conditions d'application, qui sont les suivantes :
 
 \begin{itemize}
     \item fluide non visqueux
@@ -67,7 +67,12 @@ K = p + \frac{1}{2}\rho U^2 + \rho\psi
 \label{eq:bernouilli}
 \end{equation}
 
-\paragraph{Équations d'Euler :}elles correspondent au théorème de Navier Stokes dans le cas d'un fluide non visqueux ($\nu=0$)
+\paragraph{Équations d'Euler :}elles correspondent au théorème de Navier Stokes dans le cas d'un fluide non visqueux ($\nu=0$), c'est un cas très simple et rarement rencontré en réalisé.
+%
+\begin{align}[left=\empheqlbrace]
+ & \frac{D\vec{U}}{Dt} = - \frac{1}{\rho} \vec{\nabla} p + \vec{f} \\
+ \notag & \vec{\nabla} \cdot \vec{U} = 0
+\end{align}
 
 \textbf{Conditions d'adhérence aux limites :}
 \begin{itemize}

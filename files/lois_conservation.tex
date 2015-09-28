@@ -8,12 +8,15 @@ Il existe 3 lois de conservation essentielles, conservation de :
 \begin{itemize}
     \item la masse
     \item la quantité de mouvement (ou moment)
-    \item énergie totale
+    \item l'énergie totale
 \end{itemize}
+
+Dans la grande majorité des études mécaniques (pas uniquement des fluides), l'écriture de ces 3 lois permet, après modélisation et simplification, de résoudre le problème.
+
 
 % ------------------------------------------------------
 \subsection{Conservation de la masse}
-De façon très générale, il faut toujours se souvenir que la masse se conserve. Un système fermé peut voir son volume, sa pression, sa température changer, mais pas sa masse (sauf si on rajoute ou on enlève de la matière, mais ce sont des cas très particuliers). Cette notion est comme une vérité ultime en cas de doute.
+De façon très générale, il faut toujours se souvenir que la masse se conserve. Un système fermé peut voir son volume, sa pression, sa température changer, mais pas sa masse (sauf si on rajoute ou on enlève de la matière, mais ce sont des cas très particuliers). Cette notion est comme une vérité ultime en cas de doute. Sous forme d'équation :
 %
 \begin{equation}
 \frac{dm}{dt} = \frac{d}{dt} \int_{V(t)} {\rho~dV} = 0
@@ -31,6 +34,7 @@ L'application du théorème de Reynolds nous donne sa forme la plus courante qu'
 \begin{equation}
 \frac {D\rho}{Dt} = 0 \Rightarrow \nabla \cdot \vec{U} = 0
 \end{equation}
+
 
 % ------------------------------------------------------
 \subsection{Conservation de la quantité de mouvement}
@@ -57,3 +61,7 @@ On peut ainsi calculer à un instant donné l'ensemble des forces agissant sur u
 \end{equation}
 
 De façon générale, $\vec{\vec{\sigma}}.\vec{n} = \vec{T}$ représente les efforts exercés sur une surface de normale $\vec{n}$
+
+
+% ------------------------------------------------------
+\subsection{Conservation de l'énergie totale}
