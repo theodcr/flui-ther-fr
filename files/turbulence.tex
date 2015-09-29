@@ -47,12 +47,12 @@ En simulation numérique (CFD), des modèles autres que le RANS ont été dével
 La vorticité $\vec{\omega}$ d'une particule est liée à sa rotation sur elle-même, on la définit ainsi :
 %
 \begin{equation}
-\vec{\omega} = \vec{rot}(\vec{U})
+\vec{\omega} = \vec{\nabla} \wedge \vec{U}
 \end{equation}
 %
 La vorticité est importante en turbulence, c'est elle qui caractérise la formation de tourbillons. Elle peut être utile à la description des écoulements dits tourbillonaires. La vorticité se crée à la frontière de l'écoulement, en contact avec un solide par exemple (on parle de production pariétale). La viscosité du fluide dissipe la vorticité.
 
-On définit un écoulement irrotationel ainsi :
+On définit un écoulement \textbf{irrotationel} ainsi :
 %
 \begin{equation}
 \vec{\omega} = \vec{0}

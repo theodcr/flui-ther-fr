@@ -123,7 +123,7 @@ Ce nombre intervient dans l'écriture des flux de chaleur aux parois. Ces flux a
 % ------------------------------------------------------
 \subsection{Convection forcée :}
 Le phénomène de convection forcée apparaît lorsque le fluide est mis en mouvement par
-l'écoulement du fluide est , par une pompe par exemple. Ce mouvement forcé du fluide et à l'origine d'échange convectifs avec le solide en contact. Cependant, au sein même du fluide, son mouvement fait déjà apparaître un terme advectif dans son équation de la chaleur. Ce terme est dû à la dépendance de $T$ en temps, et témoigne du transport de la chaleur avec l'écoulement à la vitesse $U$ :
+l'écoulement du fluide est , par une pompe par exemple. Ce mouvement forcé du fluide et à l'origine d'échange convectifs avec le solide en contact. Cependant, au sein même du fluide, son mouvement fait déjà apparaître un terme advectif dans son équation de la chaleur. Ce terme est dû à la dépendance de $T$ en temps, et témoigne du transport de la chaleur avec l'écoulement à la vitesse $\vec{U}$ :
 %
 \begin{equation}
 \rho~c_{p} \left( \frac{\partial T}{\partial t}
@@ -149,27 +149,34 @@ On retrouve l'écriture de $\phi_{\text{convection}}$ \eqref{eq:fluxth} ainsi :
      = ...
 \end{equation}
 
-En conclusion, pour un fluide en mouvement et en contact avec un solide, l'équation de la chaleur a la forme suivante :
+En conclusion, pour un volume $V$ de fluide en mouvement et en contact avec un solide sur une surface $S$, l'équation de la chaleur a la forme suivante :
 %
 \begin{equation}
 \rho~c_p \left( \frac{\partial T}{\partial t}
 + \vec{U} \cdot \vec{\nabla} T \right)
-= h pasbon \left( T_s - T \right)
+= \frac{h S}{V} \left( T_s - T \right)
 \end{equation}
+%
+$S$ est bien la surface de contact entre fluide et solide. Il existe de nombreuses prescriptions empiriques du nombre de Nusselt $Nu$ pour des convections forcées internes (fluide dans une conduite) ou externes (solide plongé dans un écoulement).
 
 
 % ------------------------------------------------------
 \subsection{Convection libre :}
-Ici le fluide est initialement au repos, et c'est le transfert de chaleur qui le met en mouvement. Un gradient de température apparaît au sein du fluide, et la dépendance de sa densité volumique $\rho$ avec la température est à l'origine d'un mouvement du fluide, par poussée d'Archimède (le fluide plus léger monte etc).
+Ici le fluide est initialement au repos, et c'est le transfert de chaleur qui le met en mouvement. Un gradient de température apparaît au sein du fluide, et la dépendance de sa densité $\rho$ avec la température est à l'origine d'un mouvement du fluide, par poussée d'Archimède (le fluide plus léger monte etc). Ce mouvement du fluide est dissipé par effets visqueux et par diffusion thermique (la diffusion tend à uniformiser la température, donc à réduire les différences de densité).
 
-On peut également définir un nombre de Nusselt $Nu$, mais il ne sera plus exprimé en fonction de $Re$, car la vitesse $U$ n'a pas de sens en convection libre. Le nouveau coefficient important en convection libre est le coefficient de dilatation thermique $\beta$ du fluide (en K\up{-1}) :
+On peut également définir un nombre de Nusselt $Nu$, mais il ne sera plus exprimé en fonction de $Re$, car la vitesse $\vec{U}$ n'a pas de sens en convection libre (elle n'est pas nulle, mais il est impossible de vraiment la déterminer). Le nouveau coefficient important en convection libre est le coefficient de dilatation thermique $\beta$ du fluide (en K\up{-1}) :
 %
 \begin{equation}
 \beta = \frac{1}{V} \left( \frac{\partial V}{\partial T} \right)_p
       = - \frac{1}{\rho} \left( \frac{\partial \rho}{\partial T} \right)_p
 \end{equation}
 %
-Ce coefficient vaut $1/T$ pour un gaz parfait.
+Ce coefficient vaut $\beta = 1/T$ pour un gaz parfait. Dans le cadre de notre étude, on suppose que les variations de densité $\rho$ avec la température $T$ sont faibles et linéaires en $T$ :
+%
+\begin{align}
+ &\rho(T) = \rho_0(T_0) \left( 1 - \beta(T-T_0) \right) \\
+ \notag &\beta (T-T_0) \ll 1
+\end{align}
 
 \paragraph{Nombre de Grashof :}il compare les forces visqueuses aux forces de gravité
 %
@@ -182,5 +189,21 @@ On peut exprimer $Nu$ en fonction de $Gr$ et $Pr$, ces relations sont détermin�
 \paragraph{Nombre de Rayleigh :}il est très lié à $Gr$ et permet de déterminer le régime d'écoulement en convection libre, on peut aussi déterminer $Nu = f(Pr,Ra)$
 %
 \begin{equation}
-Ra = Pr~Gr = \frac{1}{\nu\alpha}\beta g l^3 \Delta T
+Ra = Pr.Gr = \frac{1}{\nu\alpha}\beta g l^3 \Delta T
 \end{equation}
+
+Les prescriptions donnant le nombre de Nusselt $Nu$ sont encore plus rares et empiriques que dans le cas de la convection forcée. On remarque que la convection libre externe est plus aisée à étudier que la convection libre interne (où la fermeture du fluide implique beaucoup d'effets difficilement prévisibles). Également, le caractère chaud ou froid d'une source a son importance : comme le fluide monte généralement avec la chaleur, l'inversion des sources crée un tout nouveau problème.
+
+
+% ------------------------------------------------------
+\subsection{Convection mixte :}
+
+En convection forcée et régime laminaire, il peut se créer dans certaines conditions un mouvement des particules dû à la convection naturelle (ce mouvement s'ajoute au mouvement initial des particules). Si le nombre de Prandtl $Pr$ est très faible ($10^{-2}$ ou moins), cela signifie que la couche thermique est plus épaisse que la couche visqueuse. Un gradient de température apparaît dans tout l'écoulement, et le mouvement des praticules est influencé par les variations de densité et les forces d'Archimède.
+
+Il existe un critère plus simple pour déterminer l'importance relative de la convection forcée et de la convection libre sur une étude : le nombre adimensionné de Richardson :
+%
+\begin{equation}
+Ri = \frac{Gr}{Re^2}
+\end{equation}
+%
+La convection est forcée pour $Ri \ll 1$ et naturelle pour $Ri \gg 1$.
