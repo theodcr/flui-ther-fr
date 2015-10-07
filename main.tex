@@ -15,7 +15,7 @@
 \usepackage[french]{babel}
 
 % Geometry
-\usepackage[top=2.5cm, bottom=3cm, left=1.5cm, right=1.5cm, headheight=15pt]{geometry}
+\usepackage[top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm, headheight=15pt]{geometry}
 
 % Figures and tikz
 \usepackage{graphicx}
@@ -81,14 +81,14 @@
 
 % ================================================================
 \begin{center}
- \LARGE \@title
-
- \Large \@author
+    \LARGE \@title
+    
+    \Large \@author
 \end{center}
 
 \makeatother
 
-Ce document résume des éléments utiles pour l'étude de la mécanique des fluides et de la thermique, depuis les principes généraux qui entrent en jeu jusqu'aux applications concrètes des équations. Ce document se veut général et non spécialisé.
+Ce document résume des éléments utiles pour l'étude de la mécanique des fluides et de la thermique, depuis les principes généraux qui entrent en jeu jusqu'aux applications concrètes des équations. Ce document se veut général et non spécialisé. Les sources \LaTeX{} sont disponibles sur \href{https://github.com/theolamayo/flui-ther-fr}{GitHub}.
 
 % ----------------------------------------------------------------
 \input{./nomenclature.tex}
@@ -98,12 +98,12 @@ Ce document résume des éléments utiles pour l'étude de la mécanique des flu
 Pour améliorer la visibilité des équations et la compréhension des problèmes, on utilisera l'opérateur $\vec{\nabla}$, pour rappel :
 %
 \begin{align}
-\notag &\text{divergence :} \quad div (\vec{U}) = \vec{\nabla} \cdot \vec{U} \\
-\notag &\text{gradient :} \quad \vec{grad} (\phi) = \vec{\nabla} \phi \\
-\notag &\text{rotationnel :} \quad \vec{rot} (\vec{U}) = \vec{\nabla} \wedge \vec{U} \\
-\notag &\text{laplacien :} \quad \Delta (\phi) = \nabla^2 \phi
+    \notag &\text{en cartésien :} \quad \vec{\nabla} = \frac{\partial}{\partial x} \vec{e}_x + \frac{\partial}{\partial y} \vec{e}_y + \frac{\partial}{\partial z} \vec{e}_z \\
+    \notag &\text{divergence :} \quad div (\vec{U}) = \vec{\nabla} \cdot \vec{U} \\
+    \notag &\text{gradient :} \quad \vec{grad} (\phi) = \vec{\nabla} \phi \\
+    \notag &\text{rotationnel :} \quad \vec{rot} (\vec{U}) = \vec{\nabla} \wedge \vec{U} \\
+    \notag &\text{laplacien :} \quad \Delta (\phi) = \nabla^2 \phi
 \end{align}
-
 
 
 % ================================================================
@@ -144,10 +144,7 @@ Pour améliorer la visibilité des équations et la compréhension des problème
 
 % ================================================================
 \section{Écoulements compressibles}
-
-Validité du modèle fluide incompressible : $Ma \ll 1$
-avec $Ma=\frac{U}{c}$ et $c=\sqrt{\gamma r T}$
-
+\input{./files/compressible.tex}
 
 % ================================================================
 \section{Transfert de chaleur}
@@ -156,10 +153,6 @@ avec $Ma=\frac{U}{c}$ et $c=\sqrt{\gamma r T}$
 % ================================================================
 \section{Mélanges fluides} %done
 \input{./files/melanges.tex}
-
-% ================================================================
-\section{Bonus vu en TD}
-$Re$ grand $\Rightarrow$ variations de pression de l'ordre de $\rho U^2$
 
 % ================================================================
 \nocite{*}

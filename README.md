@@ -3,7 +3,7 @@ flui-ther-fr
 
 French fluid mechanics and thermics course, targeted at engineering students.
 
-Most of the chapters are still under development.
+Most chapters are still under development.
 
 Compilation
 -----------

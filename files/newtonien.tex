@@ -5,7 +5,7 @@ De manière générale, pour tout fluide, le tenseur des contraintes $\vec{\vec{
 \vec{\vec{\sigma}} = - p \vec{\vec{I}} + \vec{\vec{\tau}}
 \end{equation}
 %
-avec $\vec{\vec{I}}$ la matrice identité et $\vec{\vec{\tau}}$ le tenseur des contraintes visqueuses.
+avec $\vec{\vec{I}}$ la matrice identité et $\vec{\vec{\tau}}$ le tenseur des contraintes visqueuses. Les contraintes qui agissent au sein d'un fluide se décomposent donc clairement en 2 types : contraintes de pression et contraintes visqueuses.
 
 L'injection de cette définition dans la conservation de la QDM \eqref{eq:QDM} nous donne :
 %
@@ -13,7 +13,7 @@ L'injection de cette définition dans la conservation de la QDM \eqref{eq:QDM} n
 \rho \frac{D\vec{U}}{Dt} = - \vec{\nabla} p + \vec{\nabla} \cdot \vec{\vec{\tau}} + \rho \vec{f}
 \end{equation}
 
-En statique (fluide sans mouvement), on a $\vec{\vec{\tau}} = 0$ et $\vec{U} = \vec{0}$, cette équation nous donne alors le Principe Fondamental de la Statique \eqref{eq:PFS}.
+En statique (fluide sans mouvement), on a $\vec{U} = \vec{0}$ et par conséquent $\vec{\vec{\tau}} = 0$ (voir ci-dessous). Avec $\vec{f} = \vec{g}$ cette équation nous donne alors le Principe Fondamental de la Statique \eqref{eq:PFS}.
 
 %-------------------------------------------------------
 \paragraph{Loi newtonienne :}Elle est valable pour un fluide newtonien (voir partie \ref{sec:rheo} sur la rhéologie).
@@ -74,19 +74,23 @@ K = p + \frac{1}{2}\rho U^2 + \rho\psi
  \notag & \vec{\nabla} \cdot \vec{U} = 0
 \end{align}
 
-\textbf{Conditions d'adhérence aux limites :}
+\paragraph{Conditions limites :}elle sont liées au problème donné et sont nécessaires à la résolution des équations. Une condition très importante est l'\textbf{adhérence} du fluide à son environnement en contact : la vitesse $\vec{U}$ du fluide est localement égale à la vitesse de la paroi ou de l'autre fluide en contact. Par exemple au niveau d'un contact entre le fluide et une paroi fixe selon le plan $x = 0$, on a $\vec{U}(x=0) = \vec{0}$.
+
+\paragraph{Hypothèses courantes :}pour faciliter la résolution analytique ou numérique d'un problème, on émet des hypothèses souvent semblables aux suivantes :
+%
 \begin{itemize}
-    \item paroi solide : $\vec{U}_{paroi}=$vitesse de la paroi
-    \item interface fluides : $\vec{U}_A=\vec{U}_B$
+\item vitesse unidirectionnelle (cas 1D type $\vec{U} = U_x \vec{e}_x$) ou bidirectionelle (cas 2D)
+\item pression uniforme dans la direction transversale de l'écoulement (cas 1D)
 \end{itemize}
 
-\begin{center}
-    \begin{tikzpicture}
-        \fill[color=gray!20] (0,0) -- (0,2) ..controls +(2,0) and +(-2,0).. (5,0) -- (0,0);
-        \draw (0,2) ..controls +(2,0) and +(-2,0).. (5,0);
-        \draw (0.8,0.5) node[above] {$B$};
-        \draw (4.7,2) node[below] {$A$};
-        \draw [->,red,very thick] (2.5,1) -- +(1.4,0);
-        \draw [red] (3.2,1) node[above] {$\vec{U}_A = \vec{U}_B$};
-    \end{tikzpicture}
-\end{center}
+%\begin{center}
+%    \begin{tikzpicture}
+%        \fill[color=gray!20] (0,0) -- (0,2) ..controls +(2,0) and +(-2,0).. (5,0) -- (0,0);
+%        \draw (0,2) ..controls +(2,0) and +(-2,0).. (5,0);
+%        \draw (0.8,0.5) node[above] {$B$};
+%        \draw (4.7,2) node[below] {$A$};
+%        \draw [->,red,very thick] (2.5,1) -- +(1.4,0);
+%        \draw [red] (3.2,1) node[above] {$\vec{U}_A = \vec{U}_B$};
+%    \end{tikzpicture}
+%\end{center}
+

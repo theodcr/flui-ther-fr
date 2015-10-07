@@ -1,0 +1,27 @@
+
+Une onde acoustique est une onde de pression qui se propage de proche en proche. Dans un fluide compressible, le passage d'une onde de pression a un effet sur la densité locale $\rho$ locale du fluide. Dans le cas d'un gaz parfait (comme l'air), un rapide raisonnement analytique nous permet de calculer la vitesse de propagation $c$ de l'onde de pression (qu'on appelle couramment vitesse du son) :
+%
+\begin{equation}
+    c = \sqrt{\frac{\gamma p}{\rho}} = \sqrt{\gamma r T}
+\end{equation}
+
+On définit le nombre de Mach comme le rapport entre la vitesse de l'écoulement et la vitesse du son, c'est un nombre sans dimension :
+%
+\begin{equation}
+    Ma = \frac{U}{c}
+\end{equation}
+%
+Il permet d'identifier la nature de l'écoulement compressible, car on a la propriété suivante :
+%
+\begin{equation}
+    \frac{\delta \rho}{\rho} = \frac{{Ma}^2}{2}
+\end{equation}
+%
+Pour $Ma < 0.3$, on a $\delta \rho / \rho < 5\%$, l'écoulement est incompressible avec une bonne estimation. L'écoulement est ensuite compressible, et plus précisemment :
+\begin{itemize}
+    \item $Ma < 1$ : subsonique
+    \item $Ma = 1$ : sonique
+    \item $Ma > 1$ : supersonique
+    \item $Ma \gg 1$ : hypersonique
+\end{itemize}
+
