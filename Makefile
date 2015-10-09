@@ -43,7 +43,7 @@ clean:
 	rm -f *.bbl *.blg *.aux *.end *.fls *.log *.nlg *.nls *.out *.fdb_latexmk *.nav *.snm *.synctex.gz
 # *.synctex.gz
 
-once:
+once: $(MAIN).tex .refresh $(SOURCES) $(FIGURES)
 	$(LATEXMK) $(LATEXMKOPT) -pdflatex="$(LATEX) $(LATEXOPT) %O %S" $(MAIN)
 
 nomenclature:

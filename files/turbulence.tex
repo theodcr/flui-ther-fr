@@ -1,35 +1,35 @@
 En régime turbulent, les champs (de vitesse, de pression...) prennent des valeurs aléatoires, mais centrées autour d'un écoulement moyen. On adopte une description statistique de l'écoulement. On peut alors employer la décomposition de Reynolds, qui donne pour la vitesse :
 %
 \begin{equation}
-\vec{U} = \overline{\vec{U}} + \vec{u}
+    \vec{U} = \overline{\vec{U}} + \vec{u}
 \end{equation}
 %
 Le premier terme est celui du champ moyen, le second représente les fluctuations aléatoires caractéristiques de la turbulence. L'injection de cette décomposition dans les équations de Navier-Stokes \eqref{eq:navierstokes}, en négligeant les forces volumiques $\vec{f}$ donne les équations de l'écoulement moyen (en anglais \textbf{RANS} pour Reynolds-averaged Navier–Stokes equations) :
 %
 \begin{align}[left=\empheqlbrace]
- & \frac{ \partial\overline{\vec{U}} }{ \partial t }
- + \left( \overline{\vec{U}} \cdot \vec{\nabla} \right) \overline{\vec{U}}
- = - \frac{1}{\rho} \vec{\nabla} \overline{p}
- + \nu  \nabla^2 \overline{\vec{U}}
- + \frac{1}{\rho} \vec{\nabla} \cdot \vec{\vec{T}} \\
- \notag & \vec{\nabla} \cdot \overline{\vec{U}} = 0
+    & \frac{ \partial\overline{\vec{U}} }{ \partial t }
+    + \left( \overline{\vec{U}} \cdot \vec{\nabla} \right) \overline{\vec{U}}
+    = - \frac{1}{\rho} \vec{\nabla} \overline{p}
+    + \nu  \nabla^2 \overline{\vec{U}}
+    + \frac{1}{\rho} \vec{\nabla} \cdot \vec{\vec{T}} \\
+    \notag & \vec{\nabla} \cdot \overline{\vec{U}} = 0
 \end{align}
 %
 Où $\vec{\vec{T}}$ est le \textbf{tenseur de Reynolds}, ce terme représente à lui seul les effets de la turbulence sur l'écoulement moyen. Il est défini ainsi :
 %
 \begin{equation}
-T_{i,j} = - \rho \overline{u_i u_j}
+    T_{i,j} = - \rho \overline{u_i u_j}
 \end{equation}
 %
-Ce tenseur $\vec{\vec{T}}$ rend ces équations non fermées : il faut ajouter des modèles pour résoudre le système d'équations. Le modèle de \textbf{Boussinesq} est généralement employé, il suggère une définition du tenseur de Reynolds $\vec{\vec{T}}$ qui introduit la viscosité turbulente $\nu_t$ (de valeur plus élevée que $\nu$). La problématique est alors d'exprimer cette viscosité turbulente $\nu_t$, afin de fermer le système d'équations.
+Ce tenseur $\vec{\vec{T}}$ rend ces équations non fermées : il faut ajouter des modèles pour résoudre le système d'équations. Le modèle de \textbf{Boussinesq} est généralement employé, il suggère une définition du tenseur de Reynolds $\vec{\vec{T}}$ qui introduit la viscosité turbulente $\nu_t$ (de valeur plus élevée que $\nu$). La problématique est alors d'exprimer cette viscosité turbulente $\nu_t$ afin de fermer le système d'équations.
 
 Pour exprimer $\nu_t$, les modèles de turbulence statistique font intervenir 2 nouvelles quantités : $k$ et $\epsilon$.
 %
 \begin{align}
- & k = \frac{1}{2} \overline{\vec{u}.\vec{u}} \\
- & \epsilon = \frac{1}{2} \nu \sum\limits_{i,j=i}^3 \overline{\left(
- \frac{ \partial u_i }{ \partial x_j }
- + \frac{ \partial u_j }{ \partial x_i } \right)^2}
+    & k = \frac{1}{2} \overline{\vec{u}.\vec{u}} \\
+    & \epsilon = \frac{1}{2} \nu \sum\limits_{i,j=i}^3 \overline{\left(
+    \frac{ \partial u_i }{ \partial x_j }
+    + \frac{ \partial u_j }{ \partial x_i } \right)^2}
 \end{align}
 %
 $k$ est l'énergie cinétique turbulente moyenne, elle est liée aux grandes échelles de la turbulence (l'instabilité de l'écoulement moyen). $\epsilon$ est la dissipation turbulente moyenne, liée aux petites échelles de la turbulence (les petits tourbillons qui se dissipent avec la viscosité du fluide). Le modèle de turbulence le plus couramment utilisé dans l'industrie est ainsi nommé le $k - \epsilon$. On trouve aussi le $k - \omega$, plus adapté à une turbulence faible.
@@ -37,25 +37,25 @@ $k$ est l'énergie cinétique turbulente moyenne, elle est liée aux grandes éc
 En simulation numérique (CFD), des modèles autres que le RANS ont été développés :
 %
 \begin{itemize}
-    \item \textbf{LES} (Large Eddy Simulation ou simulation à grands tourbillons), plus lourd que le RANS. Il filtre les plus petites échelles de turbulence, il fait comme une moyenne en temps et en espace, mais il résoud ensuite les équations de Navier-Stokes sans modèle type $k-\epsilon$. Il est intéressant de l'employer en acoustique, où le RANS n'est pas assez précis.
+    \item \textbf{LES} (Large Eddy Simulation ou simulation à grands tourbillons), plus lourd que le RANS. Il filtre les plus petites échelles de turbulence, il fait comme une moyenne en temps et en espace, mais il résoud ensuite les équations de Navier-Stokes sans modèle type $k-\epsilon$. Il est intéressant de l'employer en acoustique, où le RANS n'est pas assez fin et précis.
     \item \textbf{DNS} (Direct Numerical Simulation), il résoud directement les équations de Navier-Stokes sans aucun modèle ou filtre. Il est donc très précis mais surtout extrêmement lourd en calculs. Seul de sombres chercheurs fous l'utilisent.
 \end{itemize}
 
 % ------------------------------------------------------
 \subsection*{Vorticité}
 
-La vorticité $\vec{\omega}$ d'une particule est liée à sa rotation sur elle-même, on la définit ainsi :
+La vorticité $\vec{\omega}$ d'une particule fluide est liée à sa rotation sur elle-même, on la définit ainsi :
 %
 \begin{equation}
-\vec{\omega} = \vec{\nabla} \wedge \vec{U}
+    \vec{\omega} = \vec{\nabla} \wedge \vec{U}
 \end{equation}
 %
-La vorticité est importante en turbulence, c'est elle qui caractérise la formation de tourbillons. Elle peut être utile à la description des écoulements dits tourbillonaires. La vorticité se crée à la frontière de l'écoulement, en contact avec un solide par exemple (on parle de production pariétale). La viscosité du fluide dissipe la vorticité.
+La vorticité est importante en turbulence, c'est elle qui caractérise la formation de tourbillons. Elle peut être utile à la description des écoulements dits tourbillonaires. La vorticité se crée à la frontière de l'écoulement, au contact avec un solide par exemple (on parle de production pariétale). La viscosité du fluide dissipe la vorticité.
 
 On définit un écoulement \textbf{irrotationel} ainsi :
 %
 \begin{equation}
-\vec{\omega} = \vec{0}
+    \vec{\omega} = \vec{0}
 \end{equation}
 %
-L'écoulement d'un fluide non visqueux est toujours irrotationel, il n'y a pas création de vorticité aux parois. Si on fait l'approximation de non viscosité de certaines zones d'un écoulement, alors la relation d'irrotationalité s'applique dans ces zones. Ainsi, dans le cas d'un écoulement turbulent autour d'un corps solide, on considère que l'écoulement est irrotationel en dehors des couches limites et du sillage (car l'écoulement est considéré non visqueux en dehors des couches limites et du sillage).
+L'écoulement d'un fluide non visqueux est toujours irrotationel, il n'y a pas création de vorticité aux parois. Si on fait l'approximation de non viscosité de certaines zones d'un écoulement, alors la relation d'irrotationalité s'applique dans ces zones. Ainsi, dans le cas d'un écoulement turbulent autour d'un corps solide, on considère que l'écoulement est irrotationel en dehors des couches limites et du sillage (car l'écoulement y est considéré non visqueux).

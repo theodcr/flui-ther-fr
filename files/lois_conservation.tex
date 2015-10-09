@@ -1,7 +1,7 @@
 
 % ------------------------------------------------------
 \subsection{Forme générale}
-Les équations essentielles de conservation concernent les quantités suivantes :
+Les équations fondamentales de conservation concernent les quantités suivantes :
 %
 \begin{itemize}
     \item la masse
@@ -9,28 +9,30 @@ Les équations essentielles de conservation concernent les quantités suivantes 
     \item l'énergie (totale, interne ou cinétique)
 \end{itemize}
 
-Dans la grande majorité des études mécaniques (pas uniquement des fluides), l'écriture de ces 3 lois permet, après modélisation et simplification, de résoudre le problème. Ses lois sont ici écrites sous leur forme \textit{locale} valable en tout point, cette forme se distingue de la forme \textit{globale} qui, elle, considère un domaine de l'espace $\Omega$. Il suffit d'intégrer la forme locale sur un domaine $\Omega$ pour déterminer la forme globale.
+Dans la grande majorité des études mécaniques (pas uniquement des fluides), l'écriture de ces 3 lois permet, après modélisation et simplification, de résoudre le problème.
+
+Ces lois sont ici écrites sous leur forme \textit{locale} valable en tout point, cette forme se distingue de la forme \textit{globale} qui, elle, considère un domaine de l'espace $\Omega$. Il suffit d'intégrer la forme locale d'une équation sur un domaine $\Omega$ pour déterminer sa forme globale.
 
 
 % ------------------------------------------------------
 \subsection{Conservation de la masse}
-De façon très générale, il faut toujours se souvenir que la masse se conserve. Un système fermé peut voir son volume, sa pression, sa température changer, mais pas sa masse (sauf si on rajoute ou on enlève de la matière, mais ce sont des cas très particuliers). Cette notion est comme une vérité ultime en cas de doute. Sous forme d'équation :
+De façon très générale, il faut toujours se souvenir que la masse se conserve. Un système fermé peut voir son volume, sa pression, sa température changer, mais pas sa masse (sauf si on ajoute ou on enlève de la matière, mais ce sont des cas très particuliers). Cette notion est comme une vérité ultime en cas de doute. Sous forme d'équation :
 %
 \begin{equation}
-\frac{dm}{dt} = \frac{d}{dt} \int_{V(t)} {\rho~dV} = 0
+    \frac{dm}{dt} = \frac{d}{dt} \int_{V(t)} {\rho~dV} = 0
 \end{equation}
 %
 L'application du théorème de Reynolds nous donne sa forme la plus courante qu'on nomme \textit{équation de la masse} ou \textit{équation de continuité} :
 %
 \begin{equation}
-\frac {D\rho}{Dt} + \rho \vec{\nabla} \cdot \vec{U} = 0
-\label{eq:masse}
+    \frac {D\rho}{Dt} + \rho \vec{\nabla} \cdot \vec{U} = 0
+    \label{eq:masse}
 \end{equation}
 %
 \paragraph{Compressibilité du fluide :} la masse d'une quantité donnée de fluide se conserve, cependant la densité $\rho$ de ce fluide n'est pas obligatoirement constante. Cela signifie que le volume de ce fluide peut varier : il est compressible. Un fluide incompressible a sa densité $\rho$ qui est constante : on ne peut pas le comprimer, comme un solide parfait ; son volume se conserve. L'équation de conservation de la masse nous donne alors une relation utile :
 %
 \begin{equation}
-\frac {D\rho}{Dt} = 0 \Rightarrow \vec{\nabla} \cdot \vec{U} = 0
+    \frac {D\rho}{Dt} = 0 \Rightarrow \vec{\nabla} \cdot \vec{U} = 0
 \end{equation}
 
 
@@ -39,23 +41,22 @@ L'application du théorème de Reynolds nous donne sa forme la plus courante qu'
 Cette loi correspond au principe fondamental de la dynamique appliqué à une particule fluide. Son équation est très semblable à la fameuse $m\vec{a}=\sum \vec{F}_{ext}$
 %
 \begin{equation}
-\rho \frac{D\vec{U}}{Dt} = \vec{\nabla} \cdot \vec{\vec{\sigma}} + \rho \vec{f}
-\label{eq:QDM}
+    \rho \frac{D\vec{U}}{Dt} = \vec{\nabla} \cdot \vec{\vec{\sigma}} + \rho \vec{f}
+    \label{eq:QDM}
 \end{equation}
 %
-Le terme à gauche représente l'inertie du fluide : ($\frac{D\vec{U}}{Dt}$) est l'accélération. Les termes de droite sont les termes d'efforts :
+Le terme à gauche représente l'inertie du fluide : $\frac{D\vec{U}}{Dt}$ est l'accélération. Les termes de droite sont les termes d'efforts :
 
 \begin{itemize}
-\item $\vec{\vec{\sigma}}$ est le tenseur des contraintes (en Pa), il représente les forces qui agissent sur le fluide \textit{en surface}, tout ce qui est pression et frottement est englobé par ce terme
-
-\item $\vec{f}$ représente les efforts qui agissent \textit{en volume} (en N/m\up{3}), les principaux efforts qui rentrent dans ce cas sont la gravité terrestre ($\vec{g}$) et la gravitation universelle
+    \item $\vec{\vec{\sigma}}$ est le tenseur des contraintes (en Pa), il représente les forces qui agissent sur le fluide \textit{en surface}, tout ce qui est pression et frottement est englobé par ce terme
+    \item $\vec{f}$ représente les efforts qui agissent \textit{en volume} (en N/m\up{3}), les principaux efforts concernés sont la gravité terrestre ($\vec{g}$) et la gravitation universelle
 \end{itemize}
 
 On peut ainsi calculer à un instant donné l'ensemble des forces agissant sur un domaine de volume $V$ et de surface $S$ :
 %
 \begin{equation}
-\vec{F} = \int_V { \left( \vec{\nabla} \cdot \vec{\vec{\sigma}} + \rho \vec{f} \right) dV }
-        = \int_S { \vec{\vec{\sigma}}.\vec{n} dS} + \int_V {\rho \vec{f} dV }
+    \vec{F} = \int_V { \left( \vec{\nabla} \cdot \vec{\vec{\sigma}} + \rho \vec{f} \right) dV }
+            = \int_S { \vec{\vec{\sigma}}.\vec{n} dS} + \int_V {\rho \vec{f} dV }
 \end{equation}
 
 De façon générale, le vecteur $\vec{\vec{\sigma}}.\vec{n} = \vec{T}$ représente les efforts exercés sur une surface de normale $\vec{n}$
@@ -63,7 +64,7 @@ De façon générale, le vecteur $\vec{\vec{\sigma}}.\vec{n} = \vec{T}$ représe
 
 % ------------------------------------------------------
 \subsection{Conservation de l'énergie totale}
-L'énergie spécifique totale est la somme de l'énergie interne $e$ est de l'énergie cinétique $U^2/2$. La forme globale de sa loi de conservation sur un domaine $\Omega$ est directement tirée du 1er principe de la thermodynamique \ref{subsec:1erprincipe} : le taux de variation de l'énergie totale est égale à la somme des puissances des efforts extérieurs $\dot{W}$ et calorifique $\dot{Q}$.
+L'énergie totale spécifique est la somme de l'énergie interne $e$ est de l'énergie cinétique $U^2/2$. La forme globale de sa loi de conservation sur un domaine $\Omega$ est directement tirée du 1\up{er} principe de la thermodynamique \ref{subsec:1erprincipe} : le taux de variation de l'énergie totale est égale à la somme des puissances des efforts extérieurs $\dot{W}$ et calorifique $\dot{Q}$.
 %
 \begin{equation}
     \frac{D}{Dt} \int_{\Omega} \rho \left( e + \frac{U^2}{2} \right) dV = \dot{W} + \dot{Q}
@@ -80,7 +81,7 @@ Après description des puissances (situées à droite dans l'équation), on obti
 \end{equation}
 %
 Chaque membre de droite a une signification particulière :
-%
+
 \begin{itemize}
     \item $\vec{\nabla} \left( \vec{\vec{\sigma}} . \vec{U} \right)$ est la puissance des efforts surfaciques
     \item $\rho \vec{f} . \vec{U}$ est la puissance des efforts volumiques
@@ -88,4 +89,4 @@ Chaque membre de droite a une signification particulière :
     \item $\rho q_*$ est l'apport de chaleur par une source (production de chaleur)
 \end{itemize}
 
-Il existe également une loi de conservation de l'énergie interne $e$ et une loi de conservation de l'énergie cinétique $U^2/2$
+Il existe également une loi de conservation de l'énergie interne $e$ et une loi de conservation de l'énergie cinétique $U^2/2$.

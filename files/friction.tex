@@ -3,7 +3,7 @@ La perte de charge est une perte de pression que subit un fluide qui circule dan
 Toute perte de charge peut se modéliser par une perte de "hauteur" du fluide. En effet à toute pression $p$ en $Pa$ correspond une hauteur en mètres par la relation suivante :
 %
 \begin{equation}
-z = \frac{p}{\rho g}
+    z = \frac{p}{\rho g}
 \end{equation}
 %
 $z$ représente une hauteur fictive atteinte si toute l'énergie de pression du fluide était convertie en énergie potentielle.
@@ -17,10 +17,10 @@ Le théorème de Bernouilli \eqref{eq:bernouilli} peut être généralisé pour 
 La quantité $K$ de l'équation \eqref{eq:bernouilli} n'est plus constante le long d'une ligne de courant, elle diminue avec les pertes. On a entre 2 points d'un ligne de courant :
 %
 \begin{equation}
-\Delta \left( p + \frac{1}{2}\rho U^2 + \rho g z \right) = \Delta p_f + \Delta p_s
+    \Delta \left( p + \frac{1}{2}\rho U^2 + \rho g z \right) = \Delta p_f + \Delta p_s
 \end{equation}
 %
-avec $\Delta p_f$ la totalité des pertes régulières entre les 2 points, et $\Delta p_s$ la somme des pertes singulières. Leur calcul est détaillé dans les sections ci-dessous.
+avec $\Delta p_f$ la totalité des pertes régulières entre les 2 points, et $\Delta p_s$ la somme des pertes singulières. Leur calcul est détaillé ci-dessous.
 
 
 % ----------------------------------------------------------------
@@ -47,33 +47,34 @@ avec $\Delta p_f$ la totalité des pertes régulières entre les 2 points, et $\
 Pour un écoulement incompressible d'un fluide newtonien en régime \textbf{laminaire} dans une conduite de diamètre $D$ et de longueur $\Delta L$, on peut montrer analytiquement que :
 %
 \begin{equation}
-\Delta p_f = \frac{2\rho U^2}{D} f \Delta L \quad\text{avec } f = \frac{16}{Re}
+    \Delta p_f = \frac{2\rho U^2}{D} f \Delta L
+    \quad\text{avec } f = \frac{16}{Re}
 \end{equation}
 
-$f$ est le coefficient de friction de Fanning. L'expression de $\Delta p_f$ en fonction de $f$ reste valable en dehors des hypothèses précédentes, elle est donc valable pour des fluides non newtoniens et quelque soit le régime d'écoulement. Ce qui changera pour ces cas sera la définition du coefficient de friction $f$. On notera aussi que pour des conduites en anneaux, la définition de $\Delta p_f$ peut être reprise avec $D = D_h$ diamètre hydraulique.
+$f$ est le coefficient de friction de Fanning. L'expression de $\Delta p_f$ en fonction de $f$ reste valable en dehors des hypothèses précédentes, elle est donc valable pour des fluides non newtoniens et quelque soit le régime d'écoulement. Ce qui changera pour ces cas sera la définition du coefficient de friction $f$. On notera aussi que pour des conduites avec d'autres formes, la définition de $\Delta p_f$ peut être reprise avec $D = D_h$ diamètre hydraulique.
 
 Il existe une autre description du coefficient de friction : celle de Darcy (1856) (ou Moody dans certaines publications), la relation entre coefficient de Darcy et Fanning est très simple :
 %
 \begin{equation}
-f_{\text{Darcy}} = 4\cdot f_{\text{Fanning}}
+    f_{\text{Darcy}} = 4\cdot f_{\text{Fanning}}
 \end{equation}
 
 Pour un régime \textbf{turbulent}, le coefficient de friction de Fanning vérifie l'équation suivante dite de Colebrook (1939) :
 %
 \begin{equation}
-\frac{1}{\sqrt{f}} = -4\cdot\log\left(0.269~\frac{\epsilon}{d} + \frac{1.255}{Re\sqrt{f}}\right)
+    \frac{1}{\sqrt{f}} = -4\cdot\log\left(0.269~\frac{\epsilon}{d} + \frac{1.255}{Re\sqrt{f}}\right)
 \end{equation}
 %
 Cette formulation est implicite ($f$ se situe des 2 côtés de l'équation) et fait intervenir la rugosité de la paroi de la conduite $\epsilon$ (en $m$). Cette équation se résout avec une méthode itérative (type Newton-Raphson). De nombreuses écritures explicites (donc plus simples mais approximatives) du coefficient de friction ont été formulées. On peut les trouver sur \href{https://en.wikipedia.org/wiki/Darcy_friction_factor_formulae}{Wikipédia}, la plus connue est celle de Blasius (1913) :
 %
 \begin{equation}
-f = \frac{0.0791}{Re^{0.25}}
+    f = \frac{0.0791}{Re^{0.25}}
 \end{equation}
 
 
 % ----------------------------------------------------------------
 \subsection{Pertes singulières}
-Les pertes singulières se réalisent lors de la contraction ou l’expansion du canal d’écoulement du fluide, ou lors de la traversée de coudes, de grilles etc. Ces éléments créent des perturbations et des instabilités dans l'écoulement, donc par nature il est difficile d'estimer le comportement du fluide. La plupart des modèles sont empiriques, mais ils affirment tous qu’une perte de charge singulière est proportionnelle à l’énergie cinétique du fluide selon un coefficient $\xi$ :
+Les pertes singulières se réalisent lors de la contraction ou l’expansion du canal d’écoulement du fluide, ou lors de la traversée de coudes, de grilles etc. Ces éléments créent des perturbations et des instabilités dans l'écoulement, donc par nature il est difficile d'y estimer le comportement du fluide. La plupart des modèles sont empiriques, mais ils affirment tous qu’une perte de charge singulière est proportionnelle à l’énergie cinétique du fluide selon un coefficient $\xi$ :
 %
 \begin{equation}
     \Delta p_s = \xi \rho \frac{U^2}{2}
