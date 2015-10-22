@@ -128,7 +128,7 @@ l'écoulement du fluide est , par une pompe par exemple. Ce mouvement forcé du 
               {\left( T_f - T_s \right)/l}
 \end{equation}
 %
-avec $k_f$ le coefficient de conduction thermique du fluide en mouvement. Une analyse dimensionnelle (détaillée en \cite{battaglia2010introduction}) affirme que ce nombre peut être écrit en fonction des nombres de Reynolds $Re$ et Prandt $Pr$ (ou indifféremment Péclet $Pe$).
+avec $k_f$ la conductivité du fluide en mouvement. Une analyse dimensionnelle (basée sur le théorème de Vaschy-Buckingham et détaillée en \cite{battaglia2010introduction}) affirme que ce nombre peut être écrit en fonction des nombres de Reynolds $Re$ et Prandt $Pr$ (ou indifféremment Péclet $Pe$).
 
 On retrouve l'écriture de $\phi_{\text{convection}}$ \eqref{eq:fluxth} ainsi :
 %
@@ -188,12 +188,19 @@ Les prescriptions donnant le nombre de Nusselt $Nu$ sont encore plus rares et em
 % ------------------------------------------------------
 \subsection{Convection mixte :}
 
-En convection forcée et régime laminaire, il peut se créer dans certaines conditions un mouvement des particules dû à la convection naturelle (ce mouvement s'ajoute au mouvement initial des particules). Si le nombre de Prandtl $Pr$ est très faible ($10^{-2}$ ou moins), cela signifie que la couche thermique est plus épaisse que la couche visqueuse. Un gradient de température apparaît dans tout l'écoulement, et le mouvement des praticules est influencé par les variations de densité et les forces d'Archimède.
+En convection forcée et régime laminaire, il peut se créer dans certaines conditions un mouvement des particules dû à la convection naturelle (ce mouvement s'ajoute au mouvement forcé des particules). Si le nombre de Prandtl $Pr$ est très faible ($10^{-2}$ ou moins), cela signifie que la couche thermique est plus épaisse que la couche visqueuse. Un gradient de température apparaît dans tout l'écoulement, et le mouvement des praticules est influencé par les variations de densité et les forces d'Archimède.
 
-Il existe un critère plus simple pour déterminer l'importance relative de la convection forcée et de la convection libre sur une étude : le nombre adimensionné de Richardson :
+Il existe un autre critère simple pour déterminer l'importance relative de la convection forcée et de la convection libre sur une étude : le nombre adimensionné de Richardson $Ri$.
 %
 \begin{equation}
     Ri = \frac{Gr}{Re^2}
 \end{equation}
 %
-La convection est forcée pour $Ri \ll 1$ et naturelle pour $Ri \gg 1$.
+La convection est principalement forcée pour $Ri \ll 1$ (on peut négliger la convection naturelle). Pour $Ri \gg 1$, la convection naturelle prend le dessus, le moteur mécanique de la convection forcée n'a plus d'influence sur l'écoulement. Entre ces 2 cas, pour $Ri \simeq 1$, les 2 phénomènes participent aux échanges de chaleurs, et on ne peut pas se permettre de négliger l'un des deux. La convection naturelle peut alors améliorer les échanges de chaleur ou s'y opposer, cela dépend notamment du sens de l'écoulement relativement à la gravité. On peut définir un nouveau nombre de Nusselt qui témoigne de l'influence des 2 phénomènes :
+%
+\begin{equation}
+    Nu_{\text{total}} = \left( Nu_{\text{forcée}}^n \pm Nu_{\text{naturelle}}^n \right)^{1/n}
+\end{equation}
+%
+Le signe devant $Nu_{\text{naturelle}}$ témoignent de l'influence positive ou négative de la convection naturelle. $n$ vaut 3 pour un mouvement vertical et 4 pour un mouvement horizontal.
+

@@ -60,10 +60,11 @@ La viscosité cinématique d'un fluide newtonien s'exprime en m/s\up{2} et est d
 %
 \begin{align}[left=\empheqlbrace]
     \label{eq:navierstokes}  % must put it before the first align equation
-    & \frac{D\vec{U}}{Dt} = - \frac{1}{\rho} \vec{\nabla} p + \nu  \nabla^2 \vec{U} + \vec{f} \\
+    & \rho \frac{D\vec{U}}{Dt} = - \vec{\nabla} p + \mu  \nabla^2 \vec{U} + \rho \vec{f} \\
     \notag & \vec{\nabla} \cdot \vec{U} = 0
 \end{align}
 
+On note qu'en écoulement incompressible, la valeur absolue de la pression $p$ n'importe pas, c'est uniquement son gradient $\vec{\nabla} p$ qui entre en jeu.
 
 %-------------------------------------------------------
 \paragraph{Théorème de Bernouilli :}il est très utile pour des calculs rapides, il faut bien retenir ses conditions d'application, qui sont les suivantes :
@@ -86,6 +87,7 @@ Alors la quantité suivante est constante le long d'une ligne de courant :
 \label{eq:bernouilli}
 \end{equation}
 
+%-------------------------------------------------------
 \paragraph{Équations d'Euler :}elles correspondent au théorème de Navier Stokes dans le cas d'un fluide non visqueux ($\nu=0$), c'est un cas très simple et rarement rencontré en réalisé.
 %
 \begin{align}[left=\empheqlbrace]
@@ -93,6 +95,7 @@ Alors la quantité suivante est constante le long d'une ligne de courant :
     \notag & \vec{\nabla} \cdot \vec{U} = 0
 \end{align}
 
+%-------------------------------------------------------
 \paragraph{Conditions limites :}elle sont liées au problème donné et sont nécessaires à la résolution des équations. Une condition très importante est l'\textbf{adhérence} du fluide à son environnement en contact : la vitesse $\vec{U}$ du fluide est localement égale à la vitesse de la paroi ou de l'autre fluide en contact. Par exemple au niveau d'un contact entre le fluide et une paroi fixe selon le plan $x = 0$, on a $\vec{U}(x=0) = \vec{0}$.
 
 \paragraph{Hypothèses courantes :}pour faciliter la résolution analytique ou numérique d'un problème, on émet des hypothèses souvent semblables aux suivantes :

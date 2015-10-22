@@ -21,7 +21,7 @@ Où $\vec{\vec{T}}$ est le \textbf{tenseur de Reynolds}, ce terme représente à
     T_{i,j} = - \rho \overline{u_i u_j}
 \end{equation}
 %
-Ce tenseur $\vec{\vec{T}}$ rend ces équations non fermées : il faut ajouter des modèles pour résoudre le système d'équations. Le modèle de \textbf{Boussinesq} est généralement employé, il suggère une définition du tenseur de Reynolds $\vec{\vec{T}}$ qui introduit la viscosité turbulente $\nu_t$ (de valeur plus élevée que $\nu$). La problématique est alors d'exprimer cette viscosité turbulente $\nu_t$ afin de fermer le système d'équations.
+Ce tenseur $\vec{\vec{T}}$ rend ces équations non fermées : il faut ajouter des modèles pour résoudre le système d'équations. Le modèle de \textbf{Boussinesq} est généralement employé, il suggère une définition du tenseur de Reynolds $\vec{\vec{T}}$ qui introduit la viscosité turbulente $\nu_t$ (de valeur plus élevée que la viscosité cinématique $\nu$). La problématique est alors d'exprimer cette viscosité turbulente $\nu_t$ afin de fermer le système d'équations.
 
 Pour exprimer $\nu_t$, les modèles de turbulence statistique font intervenir 2 nouvelles quantités : $k$ et $\epsilon$.
 %
@@ -58,4 +58,5 @@ On définit un écoulement \textbf{irrotationel} ainsi :
     \vec{\omega} = \vec{0}
 \end{equation}
 %
-L'écoulement d'un fluide non visqueux est toujours irrotationel, il n'y a pas création de vorticité aux parois. Si on fait l'approximation de non viscosité de certaines zones d'un écoulement, alors la relation d'irrotationalité s'applique dans ces zones. Ainsi, dans le cas d'un écoulement turbulent autour d'un corps solide, on considère que l'écoulement est irrotationel en dehors des couches limites et du sillage (car l'écoulement y est considéré non visqueux).
+L'écoulement d'un fluide non visqueux est toujours irrotationel, il n'y a pas création de vorticité aux parois. Pour un fluide visqueux, si on fait l'approximation de non viscosité de certaines zones d'un écoulement, alors la relation d'irrotationalité s'applique dans ces zones. Ainsi, dans le cas d'un écoulement turbulent autour d'un corps solide, on considère que l'écoulement est irrotationel en dehors des couches limites et du sillage (car l'écoulement y est considéré non visqueux).
+

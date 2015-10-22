@@ -1,6 +1,6 @@
 # pdflatex with makeindex for nomenclature
 # first compilation : 'make nomenclature' then 'make once'
-# then 'make once' is enough
+# then 'make' or 'make once' works
 
 
 # continuously recompiles using latexmk
