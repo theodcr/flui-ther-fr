@@ -8,7 +8,7 @@
 % Math design for matching maths : for charter and utopia
 % fourier and kpfonts are good packages too
 \usepackage{lmodern}
-\usepackage[charter]{mathdesign}
+\usepackage[charter, greekuppercase=italicized]{mathdesign}
 \usepackage{microtype}
 
 % Language
@@ -31,6 +31,8 @@
 \usepackage[overload]{empheq}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\norme}[1]{\left\lVert#1\right\rVert}
+\RequirePackage[load-configurations=abbreviations]{siunitx}
+\sisetup{locale=FR,detect-all} 
 
 % More greek letters
 \usepackage{upgreek}
@@ -82,7 +84,7 @@
 % ================================================================
 \begin{center}
     \LARGE \@title
-    
+
     \Large \@author
 \end{center}
 
@@ -147,11 +149,11 @@ Pour améliorer la visibilité des équations et la compréhension des problème
 \input{./files/compressible.tex}
 
 % ================================================================
-\section{Transfert de chaleur}
+\section{Transfert de chaleur}\label{sec:heat}
 \input{./files/thermique.tex}
 
 % ================================================================
-\section{Mélanges fluides} %done
+\section{Mélanges fluides}
 \input{./files/melanges.tex}
 
 % ================================================================

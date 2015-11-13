@@ -4,46 +4,46 @@
 Le nombre de Reynolds est un nombre sans dimension fondamental en mécanique des fluides, il représente l'importance relative des forces d'inertie sur les forces visqueuses de l'écoulement. Pour un fluide newtonien, on le calcule ainsi :
 %
 \begin{equation}
-    Re = \frac{Ul}{\nu}
+    \mathrm{Re} = \frac{Ul}{\nu}
        = \frac{\rho U l}{\mu}
 \end{equation}
 %
-avec $l$ longueur caractéristique de l'écoulement (voir partie \ref{sec:Re_details} pour plus de détails). On raisonne généralement en ordre de grandeur et non en valeur exacte de $Re$.
+avec $l$ longueur caractéristique de l'écoulement (voir partie \ref{sec:Re_details} pour plus de détails). On raisonne généralement en ordre de grandeur et non en valeur exacte de $\mathrm{Re}$.
 
 Le nombre de Reynolds (1883) permet de définir le \textbf{régime} d'un écoulement. On distingue 2 grands régimes :
 %
 \begin{itemize}
-    \item le régime \textbf{laminaire} à $Re<10^3$ environ. Les forces visqueuses sont importantes, l'écoulement est régulier et ordonné, les lignes de courant sont bien définies. C'est le cas d'un écoulement lent d'un fluide très visqueux (de l'huile ou du miel par exemple)
-    \item le régime \textbf{turbulent} à $Re>10^5$ environ. L'écoulement devient chaotique, ses caractéristiques (la vitesse par exemple) prennent des valeurs aléatoires dans des directions aléatoires, mais centrées autour d'un champ moyen. C'est le cas d'un écoulement rapide d'un fluide peu visqueux (de l'eau ou de l'air)
+    \item le régime \textbf{laminaire} à $\mathrm{Re} < \num{e3}$ environ. Les forces visqueuses sont importantes, l'écoulement est régulier et ordonné, les lignes de courant sont bien définies. C'est le cas d'un écoulement lent d'un fluide très visqueux (de l'huile ou du miel par exemple)
+    \item le régime \textbf{turbulent} à $\mathrm{Re} > \num{e5}$ environ. L'écoulement devient chaotique, ses caractéristiques (la vitesse par exemple) prennent des valeurs aléatoires dans des directions aléatoires, mais centrées autour d'un champ moyen. C'est le cas d'un écoulement rapide d'un fluide peu visqueux (de l'eau ou de l'air)
 \end{itemize}
 
 
 %-------------------------------------------------------
 \subsection{Faibles nombres de Reynolds}
-Pour $Re \ll 1$, le caractère laminaire du régime est poussé à l'extrême, aucune turbulence n'est considérée, on entre en \textit{régime de Stokes}. Il est régi par les équations suivantes, elles sont dérivées des équations de Navier-Stokes, avec suppression des termes inertiels (car $Re \ll 1$) :
+Pour $\mathrm{Re} \ll 1$, le caractère laminaire du régime est poussé à l'extrême, aucune turbulence n'est considérée, on entre en \textit{régime de Stokes}. Il est régi par les équations suivantes, elles sont dérivées des équations de Navier-Stokes, avec suppression des termes inertiels (car $\mathrm{Re} \ll 1$) :
 %
 \begin{align}[left=\empheqlbrace]
     & \mu \nabla^2 \vec{U} = \vec{\nabla} p\\
     \notag & \vec{\nabla} \cdot \vec{U} = 0
 \end{align}
 %
-Les équations différentielles sont linéaires ici, ce qui rend le problème plus simple à résoudre qu'un cas à $Re$ élevé. Les écoulements concernés sont de type microscopique (par exemple dans des capillaires) ou, à l'opposé, de type géologiques (par exemple le mouvement des glaciers).
+Les équations différentielles sont linéaires ici, ce qui rend le problème plus simple à résoudre qu'un cas à $\mathrm{Re}$ élevé. Les écoulements concernés sont de type microscopique (par exemple dans des capillaires) ou, à l'opposé, de type géologiques (par exemple le mouvement des glaciers).
 
 
 %-------------------------------------------------------
 \subsection{Régime turbulent}
-Un écoulement turbulent autour d'un objet fait apparaître un \textit{sillage} derrière celui-ci, ainsi qu'une \textit{couche} limite autour de ses parois. La vitesse de l'écoulement est plus faible dans le sillage et la couche limite, les effets de la viscosité sont très importants dans ces zones. Il faut savoir qu'à $Re$ élevé, on peut appliquer un modèle non visqueux en dehors de la couche limite et du sillage.
+Un écoulement turbulent autour d'un objet fait apparaître un \textit{sillage} derrière celui-ci, ainsi qu'une \textit{couche} limite autour de ses parois. La vitesse de l'écoulement est plus faible dans le sillage et la couche limite, les effets de la viscosité sont très importants dans ces zones. Il faut savoir qu'à $\mathrm{Re}$ élevé, on peut appliquer un modèle non visqueux en dehors de la couche limite et du sillage.
 
-On appelle souvent le couche limite \textit{couche visqueuse}, c'est en effet au sein de celle-ci que la majorité des effets visqueux ont lieu. On considère parfois que l'écoulement en couche limite est laminaire, cependant à $Re$ très élevé, la couche limite devient elle-même turbulente.
+On appelle souvent le couche limite \textit{couche visqueuse}, c'est en effet au sein de celle-ci que la majorité des effets visqueux ont lieu. On considère parfois que l'écoulement en couche limite est laminaire, cependant à $\mathrm{Re}$ très élevé, la couche limite devient elle-même turbulente.
 
-Les équations de Navier-Stokes à $Re \gg 1$ nous donnent les ordres de grandeur suivants :
+Les équations de Navier-Stokes à $\mathrm{Re} \gg 1$ nous donnent les ordres de grandeur suivants :
 %
 \begin{align}
-    & \frac {\delta}{l} = O \left( \frac{1}{\sqrt{Re}} \right) \\
+    & \frac {\delta}{l} = O \left( \frac{1}{\sqrt{\mathrm{Re}}} \right) \\
     & p = O \left( \rho U^2 \right)
 \end{align}
 %
-On lit sur la première équation que pour $Re \to \infty$, la couche limite s'amincit. La seconde équation permet d'estimer les variations de pression en régime turbulent, utile pour un calcul rapide.
+On lit sur la première équation que pour $\mathrm{Re} \to \infty$, la couche limite s'amincit. La seconde équation permet d'estimer les variations de pression en régime turbulent, utile pour un calcul rapide.
 
 \paragraph{Équations de Prandtl :}elles décrivent l'écoulement à l'intérieur de la couche limite. Elles reprennent les équations de Navier-Stokes et y appliquent certaines hypothèses (écoulement visqueux stationnaire). La direction $x$ suit la surface où se crée la couche limite, la direction $y$ est normale à cette surface.
 %
@@ -62,7 +62,7 @@ L'équation $\partial p / \partial y = 0$ (avec $y$ la direction normale à la s
 
 %-------------------------------------------------------
 \subsection{Détails}\label{sec:Re_details}
-La définition de la longueur caractéristique $l$ d'un écoulement peut sembler vague, mais à nouveau on raisonne surtout en ordre de grandeur pour le calcul de $Re$, donc pas besoin d'une valeur très précise pour $l$. Pour un écoulement autour d'un objet (dit \textit{externe}), on prendra la taille de cet objet dans la direction de l'écoulement (par exemple la longueur d'une voiture sur l'autoroute ou la longueur d'un profil d'aile) :
+La définition de la longueur caractéristique $l$ d'un écoulement peut sembler vague, mais à nouveau on raisonne surtout en ordre de grandeur pour le calcul de $\mathrm{Re}$, donc pas besoin d'une valeur très précise pour $l$. Pour un écoulement autour d'un objet (dit \textit{externe}), on prendra la taille de cet objet dans la direction de l'écoulement (par exemple la longueur d'une voiture sur l'autoroute ou la longueur d'un profil d'aile) :
 %
 \begin{center}
     \begin{tikzpicture}[scale=0.6]
@@ -80,7 +80,7 @@ Pour un écoulement dans une conduite (dit \textit{interne}), on utilise souvent
 
 Pour un écoulement dans une conduite circulaire, les nombres de Reynolds limites ont été précisément identifiés par expérience :
 \begin{itemize}
-    \item régime laminaire : $Re<2100$
-    \item régime turbulent : $Re>4000$
+    \item régime laminaire : $\mathrm{Re} < \num{2100}$
+    \item régime turbulent : $\mathrm{Re} > \num{4000}$
 \end{itemize}
 

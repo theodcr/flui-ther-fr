@@ -9,22 +9,22 @@ Une onde acoustique est une onde de pression de faible amplitude qui se propage 
 On définit le nombre de Mach comme le rapport entre la vitesse de l'écoulement et la vitesse du son, c'est un nombre sans dimension :
 %
 \begin{equation}
-    Ma = \frac{U}{c}
+    \mathrm{Ma} = \frac{U}{c}
 \end{equation}
 %
 Il permet d'identifier la nature de l'écoulement compressible, car on a la propriété suivante :
 %
 \begin{equation}
-    \frac{\delta \rho}{\rho} = \frac{{Ma}^2}{2}
+    \frac{\delta \rho}{\rho} = \frac{{\mathrm{Ma}}^2}{2}
 \end{equation}
 %
-Pour $Ma < 0.3$, on a $\delta \rho / \rho < 5\%$, l'écoulement est incompressible avec une bonne estimation. L'écoulement est ensuite compressible, et plus précisemment :
+Pour $\mathrm{Ma} < \num{0.3}$, on a $\delta \rho / \rho < \SI{5}{\percent}$, l'écoulement est incompressible avec une bonne approximation. L'écoulement est ensuite compressible, et plus précisemment :
 %
 \begin{itemize}
-    \item $Ma < 1$ : subsonique
-    \item $Ma = 1$ : sonique
-    \item $Ma > 1$ : supersonique
-    \item $Ma \gg 1$ : hypersonique
+    \item $\mathrm{Ma} < 1$ : subsonique
+    \item $\mathrm{Ma} = 1$ : sonique
+    \item $\mathrm{Ma} > 1$ : supersonique
+    \item $\mathrm{Ma} \gg 1$ : hypersonique
 \end{itemize}
 
 Si on considère un fluide non visqueux en écoulement isentropique, l'application des équations de conservation donne, avec des faibles variations de pression, l'équation de propagation des ondes acoustiques :

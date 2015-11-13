@@ -1,6 +1,6 @@
 La perte de charge est une perte de pression que subit un fluide qui circule dans une conduite. Cette perte se produit par friction du fluide aux parois (frottement) - on parle de pertes \textbf{régulières} - ou par changements brutaux de section ou de direction de l'écoulement - on parle de pertes \textbf{singulières}. Ces pertes sont particulièrement importantes dans l'étude des réseaux hydrauliques.
 
-Toute perte de charge peut se modéliser par une perte de "hauteur" du fluide. En effet à toute pression $p$ en $Pa$ correspond une hauteur en mètres par la relation suivante :
+Toute perte de charge peut se modéliser par une perte de "hauteur" du fluide. En effet à toute pression $p$ en \si{\pascal} correspond une hauteur en mètres par la relation suivante :
 %
 \begin{equation}
     z = \frac{p}{\rho g}
@@ -44,11 +44,11 @@ avec $\Delta p_f$ la totalité des pertes régulières entre les 2 points, et $\
     \end{tikzpicture}
 \end{center}
 %
-Pour un écoulement incompressible d'un fluide newtonien en régime \textbf{laminaire} dans une conduite de diamètre $D$ et de longueur $\Delta L$, on peut montrer analytiquement que :
+Pour un écoulement incompressible d'un fluide newtonien en régime \textbf{laminaire} dans une conduite de diamètre $D$ et de longueur $L$, on peut montrer analytiquement que :
 %
 \begin{equation}
-    \Delta p_f = \frac{2\rho U^2}{D} f \Delta L
-    \quad\text{avec } f = \frac{16}{Re}
+    \Delta p_f = \frac{2\rho U^2}{D} f L
+    \quad\text{avec } f = \frac{16}{\mathrm{Re}}
 \end{equation}
 
 $f$ est le coefficient de friction de Fanning. L'expression de $\Delta p_f$ en fonction de $f$ reste valable en dehors des hypothèses précédentes, elle est donc valable pour des fluides non newtoniens et quelque soit le régime d'écoulement. Ce qui changera pour ces cas sera la définition du coefficient de friction $f$. On notera aussi que pour des conduites avec d'autres formes, la définition de $\Delta p_f$ peut être reprise avec $D = D_h$ diamètre hydraulique.
@@ -62,13 +62,13 @@ Il existe une autre description du coefficient de friction : celle de Darcy (185
 Pour un régime \textbf{turbulent}, le coefficient de friction de Fanning vérifie l'équation suivante dite de Colebrook (1939) :
 %
 \begin{equation}
-    \frac{1}{\sqrt{f}} = -4\cdot\log\left(0.269~\frac{\epsilon}{d} + \frac{1.255}{Re\sqrt{f}}\right)
+    \frac{1}{\sqrt{f}} = -4\cdot\log\left(\num{0.269}~\frac{\epsilon}{d} + \frac{\num{1.255}}{\mathrm{Re}\sqrt{f}}\right)
 \end{equation}
 %
-Cette formulation est implicite ($f$ se situe des 2 côtés de l'équation) et fait intervenir la rugosité de la paroi de la conduite $\epsilon$ (en $m$). Cette équation se résout avec une méthode itérative (type Newton-Raphson). De nombreuses écritures explicites (donc plus simples mais approximatives) du coefficient de friction ont été formulées. On peut les trouver sur \href{https://en.wikipedia.org/wiki/Darcy_friction_factor_formulae}{Wikipédia}, la plus connue est celle de Blasius (1913) :
+Cette formulation est implicite ($f$ se situe des 2 côtés de l'équation) et fait intervenir la rugosité de la paroi de la conduite $\epsilon$ (en \si{\meter}). Cette équation se résout avec une méthode itérative (type Newton-Raphson). De nombreuses écritures explicites (donc plus simples mais approximatives) du coefficient de friction ont été formulées. On peut les trouver sur \href{https://en.wikipedia.org/wiki/Darcy_friction_factor_formulae}{Wikipédia}, la plus connue est celle de Blasius (1913) :
 %
 \begin{equation}
-    f = \frac{0.0791}{Re^{0.25}}
+    f = \frac{\num{0.0791}}{\mathrm{Re}^{1/4}}
 \end{equation}
 
 
